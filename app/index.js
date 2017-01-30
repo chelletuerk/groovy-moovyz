@@ -1,8 +1,16 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import App from './components/app';
-import MovieIndex from './components/movieIndex';
+import App from './components/App';
+import MovieIndex from './components/MovieIndex';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
+
+import { Provider } from 'react-redux'
+import { createStore } from 'redux'
+import rootReducer from './reducers'
+
+const devTools = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+const store = createStore(rootReducer, devTools);
+
 
 const router = (
     <Router history={browserHistory} >
@@ -12,4 +20,8 @@ const router = (
     </Router>
 )
 
-ReactDOM.render(router, document.getElementById('main'))
+ReactDOM.render(
+<Provider store={store}>
+  {router}
+</Provider>, 
+document.getElementById('main'))
