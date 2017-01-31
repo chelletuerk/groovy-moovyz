@@ -9,7 +9,6 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     handleSubmit: (draftMessage, id) => {
-      console.log('a')
       dispatch(searchMovie(draftMessage, id))
     }
   }

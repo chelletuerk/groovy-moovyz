@@ -1,11 +1,10 @@
 import { combineReducers } from 'redux'
-// import todosReducer from './todos-reducer'
+import movieReducer from './movie-reducer'
 // import filterReducer from './filter-reducer'
 
 const rootReducer = combineReducers({
-  // todosReducer,
+  movieReducer
   // filterReducer
-  // console.log('bleh');
 })
 
 export default rootReducer
