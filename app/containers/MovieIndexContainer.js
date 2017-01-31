@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
-import { addTodo } from '../actions'
-import AddTodoForm from './components/MovieIndex'
+import { searchMovie } from '../actions'
+import MovieIndex from '../components/MovieIndex'
 
 const mapStateToProps = (state) => {
   return {movieArray: state.movieReducer}
@@ -9,6 +9,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     handleSubmit: (draftMessage, id) => {
+      console.log('a')
       dispatch(searchMovie(draftMessage, id))
     }
   }
