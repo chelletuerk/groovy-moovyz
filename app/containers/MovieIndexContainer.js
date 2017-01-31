@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { searchMovie } from '../actions'
+import { fetchMovie } from '../actions'
 import MovieIndex from '../components/MovieIndex'
 
 const mapStateToProps = (state) => {
@@ -9,7 +9,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     handleSubmit: (draftMessage, id) => {
-      dispatch(searchMovie(draftMessage, id))
+      dispatch(fetchMovie(draftMessage, id))
     }
   }
 }

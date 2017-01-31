@@ -1,7 +1,8 @@
-const movies = (state = [], action) => {
+const movies = (state = {}, action) => {
   switch (action.type) {
     case 'SEARCH_MOVIE':
-    return [...state, {id: action.id, draftMessage: }]
+    return Object.assign({}, state, action.draftMessage)
+    // return [...state, {id: action.id, draftMessage: }]
     default:
       return state
   }
