@@ -17,8 +17,7 @@ export default class MovieIndex extends Component {
       MOVIES
         <form onSubmit={(e) => {
           e.preventDefault()
-          handleSubmit(this.state.draftMessage, movieArray.length)
-
+          handleSubmit(this.state.draftMessage, 2)
         }}>
           <input
             value={this.state.draftMessage}
