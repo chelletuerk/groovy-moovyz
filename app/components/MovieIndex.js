@@ -11,18 +11,20 @@ export default class MovieIndex extends Component {
   }
 
   render() {
-    const { handleSubmit, movieArray } = this.props
+    const { fetchData, movieArray } = this.props
     return (
       <div>
       MOVIES
         <form onSubmit={(e) => {
           e.preventDefault()
-          handleSubmit(this.state.draftMessage, 2)
+          fetchData(this.state.draftMessage)
+          // handleSubmit(this.state.draftMessage, 2)
         }}>
           <input
             value={this.state.draftMessage}
             onChange={(e) => this.setState({draftMessage: e.target.value})}
           />
+          <button>button</button>
         </form>
       </div>
     )

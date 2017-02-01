@@ -1,10 +1,14 @@
 import { combineReducers } from 'redux'
-import movieReducer from './movie-reducer'
 // import filterReducer from './filter-reducer'
 
-const rootReducer = combineReducers({
-  movieReducer
-  // filterReducer
-})
+const movies = (state = {}, action) => {
+  switch (action.type) {
+    case 'SEARCH_MOVIE':
+    return Object.assign({}, state, action.draftMessage)
+    // return [...state, {id: action.id, draftMessage: }]
+    default:
+      return state
+  }
+}
 
-export default rootReducer
+export default  movies
