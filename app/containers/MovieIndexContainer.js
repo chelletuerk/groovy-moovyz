@@ -6,7 +6,7 @@ const mapStateToProps = (state) => {
   // return {movieApp: [...state]}
   if (state.movieApp[0]) {
   let movieState = state.movieApp[0]
-  return {title: movieState.title, photo: movieState.photo}
+  return {title: movieState.title, photo: movieState.photo, popularMovies: movieState.popularMovies}
 } return state
 
 }
