@@ -9,7 +9,7 @@ import { Provider } from 'react-redux'
 import { createStore, applyMiddleware, combineReducers, compose } from 'redux'
 import reducers from './reducers'
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION__ || compose
+const composeEnhancers = compose
 
 const store = createStore(combineReducers({movieApp: reducers}), {}, composeEnhancers(applyMiddleware(thunk)))
 

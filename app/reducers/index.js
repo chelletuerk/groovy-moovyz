@@ -1,4 +1,4 @@
-import { combineReducers } from 'redux'
+import Redux from 'redux'
 // import filterReducer from './filter-reducer'
 
 const movies = (state = {}, action) => {
