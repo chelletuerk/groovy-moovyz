@@ -20,6 +20,4 @@ export const fetchData = (draftMessage) => {
         })
         .catch(err => console.log('err'))
     // .then(payload => dispatch(searchMovie(draftMessage, payload)))
-
-
 }
