@@ -10,7 +10,6 @@ export const searchMovie = (draftMessage, payload) => {
 
 export const fetchData = (draftMessage) => {
   const baseUrl = 'https://api.themoviedb.org/3/'
-  const fightClub = 'movie/550?api_key=5cfdb8d0915ecb8d60d107cef74a22e8'
   const popular = 'movie/popular?api_key=5cfdb8d0915ecb8d60d107cef74a22e8'
   const search = 'search/movie?api_key=5cfdb8d0915ecb8d60d107cef74a22e8&query=${THIS IS WHERE SEARCHED MOVIE NAME GOES}'
       return (dispatch) => {

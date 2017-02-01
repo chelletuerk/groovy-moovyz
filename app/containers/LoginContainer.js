@@ -14,4 +14,4 @@ const mapDispatchToProps = {
     fetchData
 }
 
-export default connect(null, null)(Login)
+export default connect(null)(Login)
