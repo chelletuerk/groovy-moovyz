@@ -10,12 +10,16 @@ export default class MovieIndex extends Component {
     }
   }
 
+  componentDidMount() {
+    this.props.fetchData(this.state.draftMessage)
+  }
+
   loadMovies() {
     if(this.props.popularMovies) {
     return this.props.popularMovies.map((movie, i) => {
       console.log(movie)
       return (
-        <li key={i}><img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} /></li>
+        <li className='card' key={i}><img src={`https://image.tmdb.org/t/p/w342/${movie.poster_path}`} /></li>
       )
     })
   }
@@ -32,11 +36,11 @@ export default class MovieIndex extends Component {
           fetchData(this.state.draftMessage)
           // handleSubmit(this.state.draftMessage, 2)
         }}>
+
           <input
             value={this.state.draftMessage}
             onChange={(e) => this.setState({draftMessage: e.target.value})}
           />
-          <button>button</button>
         </form>
         <ul>
           {this.loadMovies()}

@@ -1,7 +1,33 @@
-#main h1 {
-  background-color: blue;
+@import url("https://fonts.googleapis.com/css?family=Barrio");
+
+.header-title {
+  font-family: 'Barrio', cursive;
+  color: white;
+  font-size: 50px;
+  text-align: center;
 }
 
-#main {
+.card {
+  width: 25%;
+  display: inline-block;
+  margin: 20px;
+}
+
+input {
+  width: 25%;
+  height: 30px;
   text-align: center;
+  margin-left: 37%;
+}
+
+div {
+  margin: 0 auto;
+}
+
+ul {
+  text-align: center;
+}
+
+body {
+  background-color: black;
 }
