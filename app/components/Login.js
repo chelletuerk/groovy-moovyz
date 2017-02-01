@@ -7,7 +7,20 @@ export default class Login extends Component {
     super(props)
     this.state = {
       draftMessage: '',
+      email: '',
+      password: '',
     }
+
+    this.updateEmail = this.updateEmail.bind(this)
+    this.updatePassword = this.updatePassword.bind(this)
+  }
+
+  updateEmail(e) {
+    this.setState({email: e.target.value})
+  }
+
+  updatePassword(e) {
+    this.setState({password: e.target.value})
   }
 
   signIn() {
@@ -20,12 +33,11 @@ export default class Login extends Component {
 
     return (
       <div>
-      <input placeholder ="email" value={this.state.email} />
-      <input placeholder ="password" value={this.state.password} />
+      <input placeholder='email' onChange={this.updateEmail} value={this.state.email} />
+      <input placeholder='password' onChange={this.updatePassword} value={this.state.password} />
         <Button
           text='login'
           handleClick={this.signIn.bind(this)}
-
         />
       </div>
     )
