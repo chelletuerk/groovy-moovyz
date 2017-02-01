@@ -9,6 +9,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchData
+    
     // handleSubmit: (draftMessage, id) => {
     //   dispatch(fetchMovie(draftMessage, id))
     // }
