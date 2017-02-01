@@ -1,13 +1,5 @@
 import fetch from 'isomorphic-fetch'
 
-// export const searchMovie = (draftMessage, payload) => {
-//   return (dispatch) => {
-//     return Promise.all([
-//       dispatch(fetchData({draftMessage, payload, action: SEARCH_MOVIE}))
-//     ])
-//    }
-//   }
-
 export const searchMovie = (draftMessage, payload) => {
   return {
     type: 'SEARCH_MOVIE',
@@ -22,16 +14,10 @@ export const fetchData = (draftMessage) => {
         .then(response => {
           return response.json()
         })
-        // .then(json => {
-        //
-        //   dispatch({type: action, json})
-        // })
         .then( json => {
           console.log(json)
           dispatch(searchMovie(draftMessage, json))
         })
-
         .catch(err => console.log('err'))
       }
-    // .then(payload => dispatch(searchMovie(draftMessage, payload)))
 }
