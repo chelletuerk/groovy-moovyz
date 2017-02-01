@@ -11,7 +11,7 @@ export default class MovieIndex extends Component {
   }
 
   render() {
-    const { fetchData, movieArray } = this.props
+    const { fetchData, movieArray, title, photo } = this.props
     return (
       <div>
       MOVIES
@@ -26,6 +26,8 @@ export default class MovieIndex extends Component {
           />
           <button>button</button>
         </form>
+        <h1>{title}</h1>
+        {/* <img src={} */}
       </div>
     )
   }
