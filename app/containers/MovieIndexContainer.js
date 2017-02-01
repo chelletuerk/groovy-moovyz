@@ -3,17 +3,14 @@ import { fetchData } from '../actions'
 import MovieIndex from '../components/MovieIndex'
 
 const mapStateToProps = (state) => {
-  return {movieArray: state.movieReducer}
+  return {movieArray: [...state]}
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
+const mapDispatchToProps = {
     fetchData
-    
     // handleSubmit: (draftMessage, id) => {
     //   dispatch(fetchMovie(draftMessage, id))
     // }
-  }
 }
 
-export default connect(null, mapDispatchToProps)(MovieIndex)
+export default connect(mapStateToProps, mapDispatchToProps)(MovieIndex)
