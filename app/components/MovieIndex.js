@@ -10,8 +10,20 @@ export default class MovieIndex extends Component {
     }
   }
 
+  loadMovies() {
+    if(this.props.popularMovies) {
+    return this.props.popularMovies.map((movie, i) => {
+      console.log(movie)
+      return (
+        <li key={i}><img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} /></li>
+      )
+    })
+  }
+  return
+}
+
   render() {
-    const { fetchData, movieArray, title, photo } = this.props
+    const { fetchData, movieArray, title, photo, popularMovies } = this.props
     return (
       <div>
       MOVIES
@@ -26,8 +38,9 @@ export default class MovieIndex extends Component {
           />
           <button>button</button>
         </form>
-        <h1>{title}</h1>
-        <img src={`https://image.tmdb.org/t/p/w500/${photo}`}/>
+        <ul>
+          {this.loadMovies()}
+        </ul>
       </div>
     )
   }

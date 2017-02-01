@@ -16,7 +16,6 @@ export const fetchData = (draftMessage) => {
       return (dispatch) => {
     fetch(`${baseUrl}${popular}`)
         .then(response => {
-          console.log(`${baseUrl}${popular}`)
           return response.json()
         })
         .then( json => {
