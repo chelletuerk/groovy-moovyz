@@ -27,7 +27,7 @@ export default class MovieIndex extends Component {
           <button>button</button>
         </form>
         <h1>{title}</h1>
-        {/* <img src={} */}
+        <img src={`https://image.tmdb.org/t/p/w500/${photo}`}/>
       </div>
     )
   }
