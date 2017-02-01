@@ -1,15 +1,17 @@
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
-import App from './components/App';
-import MovieIndexContainer from './containers/MovieIndexContainer';
-import { Router, Route, IndexRoute, browserHistory } from 'react-router';
+import React, { Component } from 'react'
+import ReactDOM from 'react-dom'
+import App from './components/App'
+import MovieIndexContainer from './containers/MovieIndexContainer'
+import { Router, Route, IndexRoute, browserHistory } from 'react-router'
+import thunk from 'redux-thunk'
 
 import { Provider } from 'react-redux'
-import { createStore } from 'redux'
-import rootReducer from './reducers'
+import { createStore, applyMiddleware, combineReducers, compose } from 'redux'
+import reducers from './reducers'
 
-const devTools = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-const store = createStore(rootReducer, devTools);
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+const store = createStore(combineReducers({movieApp: reducers}), {}, composeEnhancers(applyMiddleware(thunk)))
 
 const router = (
   <Provider store={store}>

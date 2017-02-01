@@ -1,17 +1,16 @@
 import { connect } from 'react-redux'
-import { fetchMovie } from '../actions'
+import { fetchData } from '../actions'
 import MovieIndex from '../components/MovieIndex'
 
 const mapStateToProps = (state) => {
-  return {movieArray: state.movieReducer}
+  return {movieArray: [...state]}
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    handleSubmit: (draftMessage, id) => {
-      dispatch(fetchMovie(draftMessage, id))
-    }
-  }
+const mapDispatchToProps = {
+    fetchData
+    // handleSubmit: (draftMessage, id) => {
+    //   dispatch(fetchMovie(draftMessage, id))
+    // }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(MovieIndex)
