@@ -17,7 +17,7 @@ export default class MovieIndex extends Component {
   loadMovies() {
     if(this.props.popularMovies) {
     return this.props.popularMovies.map((movie, i) => {
-      console.log(movie)
+      // console.log(movie)
       return (
         <li className='card' key={i}><img src={`https://image.tmdb.org/t/p/w342/${movie.poster_path}`} /></li>
       )
