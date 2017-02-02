@@ -5,14 +5,15 @@ import { fetchData } from '../actions'
 
 const movies = (state = {}, action) => {
   switch (action.type) {
-    case 'SEARCH_MOVIE':
+
+    case 'POPULAR_MOVIES':
     return [...state, {
       draftMessage: action.draftMessage,
       payload: action.payload,
-      title: action.payload.title,
       popularMovies: action.payload.results,
       photo: action.payload.poster_path}]
-      case 'SIGN_IN' :
+
+    case 'SIGN_IN' :
       if(action.emailKey === action.email && action.passwordKey === action.password) {
         browserHistory.push('/')
         return [...state , {
@@ -20,7 +21,15 @@ const movies = (state = {}, action) => {
           password: action.password,
           emailKey: action.emailKey,
           passwordKey: action.passwordKey}]
-      }
+        }
+
+    case 'SEARCHED_MOVIE':
+    return [...state, {
+      draftMessage: action.draftMessage,
+      payload: action.payload,
+      popularMovies: action.payload.results,
+    }]
+
     default:
       return state
   }
