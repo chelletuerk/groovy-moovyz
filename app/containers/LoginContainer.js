@@ -3,7 +3,7 @@ import { fetchLogin } from '../actions'
 import Login from '../components/Login'
 
 const mapStateToProps = (state) => {
-  return {email: state.email, password: state.password, emailKey: state.emailKey, passwordKey: state.passwordKey}
+  return {user: state.user}
   }
 
 const mapDispatchToProps = {
