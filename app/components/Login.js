@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link, browserHistory } from 'react-router'
 import Button from './Button'
 
 
@@ -24,9 +25,22 @@ export default class Login extends Component {
   }
 
   signIn() {
+    this.fetchLogin()
+  }
+
+  fetchLogin() {
     let validation = fetch('http://localhost:3000/api/users')
     .then(response => response.json())
-      console.log(validation)
+    .then(json => json.data[0])
+    .then(data => this.checkPassword(data.email, data.password))
+  }
+
+  checkPassword(emailkey, passkey) {
+    if(emailkey === this.state.email && passkey === this.state.password) {
+      browserHistory.push('/')
+    } else {
+      console.log('false')
+    }
   }
 
   render() {
@@ -35,7 +49,7 @@ export default class Login extends Component {
       <div>
       <input placeholder='email' onChange={this.updateEmail} value={this.state.email} />
       <input placeholder='password' onChange={this.updatePassword} value={this.state.password} />
-        <Button
+      <Button
           text='login'
           handleClick={this.signIn.bind(this)}
         />
