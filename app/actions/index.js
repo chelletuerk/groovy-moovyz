@@ -59,7 +59,7 @@ const fetchSearchedMovie = (query) => {
           return response.json()
         })
         .then( json => {
-        dispatch(displaySearchedMovie(query, json))
+          dispatch(displaySearchedMovie(query, json))
         })
         .catch(err => console.log('err'))
       }
