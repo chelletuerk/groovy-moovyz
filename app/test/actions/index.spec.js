@@ -14,11 +14,15 @@ describe('actions', () => {
   })
   // ^^ Should this test be more specific?
   it('should create an action for a user to signIn', () => {
-      const payload = {'somejson': 'somejson', 'somemorejson': 'somemorejson'}
+      const email = 'jim@aol.com'
+      const password = 'password'
       const expectedAction = {
-        type: 'POPULAR_MOVIES',
-        payload: {'somejson': 'somejson', 'somemorejson': 'somemorejson'}
+        type: 'SIGN_IN',
+        email: 'jim@aol.com',
+        password: 'password',
+        emailKey: 'jim@aol.com',
+        passwordKey: 'password'
       }
-      expect(actions.displayPopularMovies(payload)).to.deep.equal(expectedAction)
+      expect(actions.signIn(email,password,email,password)).to.deep.equal(expectedAction)
   })
 })
