@@ -7,11 +7,9 @@ export default class Login extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      draftMessage: '',
       email: '',
       password: '',
     }
-
     this.updateEmail = this.updateEmail.bind(this)
     this.updatePassword = this.updatePassword.bind(this)
   }
@@ -24,35 +22,21 @@ export default class Login extends Component {
     this.setState({password: e.target.value})
   }
 
-  signIn() {
-    this.fetchLogin()
-  }
-
-  fetchLogin() {
-    let validation = fetch('http://localhost:3000/api/users')
-    .then(response => response.json())
-    .then(json => json.data[0])
-    .then(data => this.checkPassword(data.email, data.password))
-  }
-
-  checkPassword(emailkey, passkey) {
-    if(emailkey === this.state.email && passkey === this.state.password) {
-      browserHistory.push('/')
-    } else {
-      console.log('false')
-    }
-  }
-
   render() {
-
+    const { fetchLogin } = this.props
     return (
       <div>
-      <input placeholder='email' onChange={this.updateEmail} value={this.state.email} />
-      <input placeholder='password' onChange={this.updatePassword} value={this.state.password} />
-      <Button
-          text='login'
-          handleClick={this.signIn.bind(this)}
-        />
+        <form onSubmit={(e) => {
+          e.preventDefault()
+          fetchLogin(this.state.email, this.state.password)
+        }}>
+        <input placeholder='email' onChange={this.updateEmail} value={this.state.email} />
+        <input placeholder='password' onChange={this.updatePassword} value={this.state.password} />
+          <Button
+              text='login'
+              // handleClick={fetchLogin(this.state.email, this.state.password)}
+            />
+        </form>
       </div>
     )
   }

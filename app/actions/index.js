@@ -7,6 +7,17 @@ export const displayPopularMovies = (payload) => {
   }
 }
 
+
+export const signIn = (email, password, emailKey, passwordKey) => {
+  return {
+    type: 'SIGN_IN',
+    email,
+    password,
+    emailKey,
+    passwordKey
+  }
+}
+
 export const displaySearchedMovie = (query, payload) => {
   return {
   type: 'SEARCHED_MOVIE',
@@ -52,4 +63,13 @@ const fetchSearchedMovie = (query) => {
         })
         .catch(err => console.log('err'))
       }
-   }
+}
+
+export const fetchLogin = (email, password) => {
+  return (dispatch) => {
+    return fetch('http://localhost:3000/api/users')
+  .then(response => response.json())
+  .then(json => json.data[0])
+  .then(data => dispatch(signIn(email, password, data.email, data.password)))
+  }
+}
