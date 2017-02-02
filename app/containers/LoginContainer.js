@@ -1,17 +1,13 @@
 import { connect } from 'react-redux'
-import { fetchData } from '../actions'
+import { signIn } from '../actions'
 import Login from '../components/Login'
 
 const mapStateToProps = (state) => {
-  if (state.movieApp[0]) {
-  let movieState = state.movieApp[0]
-  return {title: movieState.title, photo: movieState.photo, popularMovies: movieState.popularMovies}
+  return {email: state.email, password: state.password, emailKey: state.emailKey, passwordKey: state.passwordKey}
   }
-  return state
-}
 
 const mapDispatchToProps = {
-    fetchData
+    signIn
 }
 
-export default connect(null)(Login)
+export default connect(mapStateToProps, mapDispatchToProps)(Login)
