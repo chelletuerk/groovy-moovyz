@@ -8,10 +8,16 @@ export default class MovieIndex extends Component {
     this.state = {
       draftMessage: '',
     }
+    this.handleSearch = this.handleSearch.bind(this)
   }
 
   componentDidMount() {
-    this.props.fetchData(this.state.draftMessage)
+    this.props.fetchData({type: 'popular'})
+  }
+
+  handleSearch(e) {
+    this.setState({draftMessage: e.target.value})
+    this.props.fetchData({type: 'search', query: e.target.value})
   }
 
   loadMovies() {
@@ -34,12 +40,11 @@ export default class MovieIndex extends Component {
         <form onSubmit={(e) => {
           e.preventDefault()
           fetchData(this.state.draftMessage)
-          // handleSubmit(this.state.draftMessage, 2)
         }}>
 
           <input
             value={this.state.draftMessage}
-            onChange={(e) => this.setState({draftMessage: e.target.value})}
+            onChange={this.handleSearch}
           />
         </form>
         <ul>
