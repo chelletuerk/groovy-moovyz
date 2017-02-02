@@ -27,16 +27,18 @@ export default class MovieIndex extends Component {
     })
   }
 
-  loadMovies() {
-    if(this.props.popularMovies) {
-    return this.props.popularMovies.map((movie, i) => {
-    return (movie.poster_path === null) ? null  : <li className='card' key={i}><img src={`https://image.tmdb.org/t/p/w342/${movie.poster_path}`} /></li>
-    })
-  }
-  }
+  // loadMovies() {
+  //   if(this.props.movies.popularMovies) {
+  //   return this.props.movies.popularMovies.map((movie, i) => {
+  //     console.log('test')
+  //   return (movie.poster_path === null) ? null  : <li className='card' key={i}><img src={`https://image.tmdb.org/t/p/w342/${movie.poster_path}`} /></li>
+  //   })
+  // }
+  // }
 
   render() {
-    const { fetchData, movieArray, title, photo, popularMovies } = this.props
+    console.log(this.props.movies.popularMovies)
+    const { fetchData, movies } = this.props
     return (
       <div>
       MOVIES
@@ -52,7 +54,10 @@ export default class MovieIndex extends Component {
         </div>
         </form>
         <ul>
-          {this.loadMovies()}
+          {this.props.movies.popularMovies.map((movie, i) => {
+            return <li className='card' key={i}><img src={`https://image.tmdb.org/t/p/w342/${movie.poster_path}`} /></li>
+          })}
+
         </ul>
       </div>
     )

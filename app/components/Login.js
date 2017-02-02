@@ -30,12 +30,15 @@ export default class Login extends Component {
           e.preventDefault()
           fetchLogin(this.state.email, this.state.password)
         }}>
-        <input placeholder='email' onChange={this.updateEmail} value={this.state.email} />
+        <input className='email' placeholder='email' onChange={this.updateEmail} value={this.state.email} />
         <input placeholder='password' onChange={this.updatePassword} value={this.state.password} />
-          <Button
-              text='login'
-              // handleClick={fetchLogin(this.state.email, this.state.password)}
-            />
+        <Button
+        className='loginBtn'
+        text='login'
+        />
+        </form>
+        <form >
+          <input placeholder='add new user' />
         </form>
       </div>
     )
