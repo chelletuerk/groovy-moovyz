@@ -16,21 +16,24 @@ export default class MovieIndex extends Component {
   }
 
   handleSearch(e) {
-    this.setState({draftMessage: e.target.value})
-    this.props.fetchData({type: 'search', query: e.target.value})
+    console.log('empty')
+    this.setState({draftMessage: e.target.value}, () => {
+      if (this.state.draftMessage.length > 0) {
+        this.props.fetchData({type: 'search', query: this.state.draftMessage})
+      }
+      if (this.state.draftMessage.length < 1) {
+        this.props.fetchData({type: 'popular'})
+      }
+    })
   }
 
   loadMovies() {
     if(this.props.popularMovies) {
     return this.props.popularMovies.map((movie, i) => {
-      // console.log(movie)
-      return (
-        <li className='card' key={i}><img src={`https://image.tmdb.org/t/p/w342/${movie.poster_path}`} /></li>
-      )
+    return (movie.poster_path === null) ? null  : <li className='card' key={i}><img src={`https://image.tmdb.org/t/p/w342/${movie.poster_path}`} /></li>
     })
   }
-  return
-}
+  }
 
   render() {
     const { fetchData, movieArray, title, photo, popularMovies } = this.props
@@ -41,11 +44,12 @@ export default class MovieIndex extends Component {
           e.preventDefault()
           fetchData(this.state.draftMessage)
         }}>
-
+        <div className='search'>
           <input
             value={this.state.draftMessage}
             onChange={this.handleSearch}
           />
+        </div>
         </form>
         <ul>
           {this.loadMovies()}
