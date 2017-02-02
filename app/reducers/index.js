@@ -9,6 +9,12 @@ const movies = (state = {}, action) => {
       title: action.payload.title,
       popularMovies: action.payload.results,
       photo: action.payload.poster_path}]
+      case 'SIGN_IN' :
+      return [...state , {
+        email: action.email,
+        password: action.password,
+        emailKey: action.emailKey,
+        passwordKey: action.passwordKey}]
     default:
       return state
   }
