@@ -1,5 +1,6 @@
 import Redux from 'redux'
 import { Link, browserHistory } from 'react-router'
+import { fetchData } from '../actions'
 
 
 const movies = (state = {}, action) => {

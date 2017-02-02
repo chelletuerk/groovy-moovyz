@@ -22,20 +22,6 @@ export default class Login extends Component {
     this.setState({password: e.target.value})
   }
 
-  // signIn() {
-  //   this.fetchLogin()
-  // }
-
-
-
-  // checkPassword(emailkey, passkey) {
-  //   if(emailkey === this.state.email && passkey === this.state.password) {
-  //     browserHistory.push('/')
-  //   } else {
-  //     console.log('false')
-  //   }
-  // }
-
   render() {
     const { fetchLogin } = this.props
     return (
@@ -48,7 +34,7 @@ export default class Login extends Component {
         <input placeholder='password' onChange={this.updatePassword} value={this.state.password} />
           <Button
               text='login'
-              handleClick={fetchLogin(this.state.email, this.state.password)}
+              // handleClick={fetchLogin(this.state.email, this.state.password)}
             />
         </form>
       </div>

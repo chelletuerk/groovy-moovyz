@@ -21,6 +21,7 @@ const router = (
         <IndexRedirect to='/login' component={LoginContainer} />
         <Route path='/login' component={LoginContainer} />
         <IndexRoute component={MovieIndexContainer} />
+        <Route path='/' component={MovieIndexContainer} />
       </Route>
     </Router>
   </Provider>
