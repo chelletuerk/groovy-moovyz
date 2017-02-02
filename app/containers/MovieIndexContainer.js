@@ -3,11 +3,8 @@ import { fetchData } from '../actions'
 import MovieIndex from '../components/MovieIndex'
 
 const mapStateToProps = (state) => {
-  if (state.movieApp.length > 0) {
-  let movieState = state.movieApp[state.movieApp.length - 1]
-  return {title: movieState.title, photo: movieState.photo, popularMovies: movieState.popularMovies}
-  }
-  return state
+  console.log(state.movies)
+  return {movies: state.movies}
 }
 
 const mapDispatchToProps = {

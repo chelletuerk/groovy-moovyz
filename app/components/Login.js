@@ -32,10 +32,13 @@ export default class Login extends Component {
         }}>
         <input className='email' placeholder='email' onChange={this.updateEmail} value={this.state.email} />
         <input placeholder='password' onChange={this.updatePassword} value={this.state.password} />
-          <Button
-              className='loginBtn'
-              text='login'
-            />
+        <Button
+        className='loginBtn'
+        text='login'
+        />
+        </form>
+        <form >
+          <input placeholder='add new user' />
         </form>
       </div>
     )
