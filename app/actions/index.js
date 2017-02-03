@@ -1,13 +1,12 @@
 import fetch from 'isomorphic-fetch'
 import { Link, browserHistory } from 'react-router'
 
-export const displayPopularMovies = (payload) => {
+export const addFave = (movie) => {
   return {
-    type: 'POPULAR_MOVIES',
-    payload,
+    type: 'ADD_FAVE',
+    movie
   }
 }
-
 
 export const signIn = (email, password, user) => {
   return {
@@ -15,6 +14,13 @@ export const signIn = (email, password, user) => {
     email,
     password,
     user
+  }
+}
+
+export const displayPopularMovies = (payload) => {
+  return {
+    type: 'POPULAR_MOVIES',
+    payload,
   }
 }
 
@@ -67,12 +73,27 @@ const fetchSearchedMovie = (query) => {
 
 export const fetchLogin = (email, password) => {
   return (dispatch) => {
-    console.log('in')
     return fetch('/api/users', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({email, password})
-    }).then(data => dispatch(signIn(email,password, data)))
+    })
+    .then(data => data.json())
+    .then(data => dispatch(signIn(email,password, data.data)))
       .then(data => browserHistory.push('/'))
   }
 }
+
+export const sendFavorite = (movie, user) => {
+  return (dispatch) => {
+    return fetch('api/users/favorites/new', {
+      method: 'POST',
+      headers: {'Content-Type' : 'application/json'},
+      body: JSON.stringify({movie_id: movie.id, user_id: user.id, title: movie.title, poster_path: movie.poster_path, release_date: movie.release_date, vote_average: movie.vote_average, overview: movie.overview})
+    })
+    .then(data => dispatch(addFave(movie)))
+    }
+  }
+
+
+// movie_id, user_id, user_title, poster_path, release_date, vote_average, overview

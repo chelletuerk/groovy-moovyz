@@ -8,6 +8,11 @@ const movies = (state = {}, action) => {
     case 'SEARCHED_MOVIE':
     return Object.assign({}, state, {searchedMovies: action.payload.results})
 
+    case 'ADD_FAVE':
+    return Object.assign({}, state, {
+      favorites: action.movie
+    })
+
     default:
       return state
   }
