@@ -4,7 +4,7 @@ import MovieIndex from '../components/MovieIndex'
 
 const mapStateToProps = (state) => {
   console.log(state.movies)
-  return {movies: state.movies}
+  return {movies: state.movies }
 }
 
 const mapDispatchToProps = {
