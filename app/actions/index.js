@@ -1,4 +1,5 @@
 import fetch from 'isomorphic-fetch'
+import { Link, browserHistory } from 'react-router'
 
 export const displayPopularMovies = (payload) => {
   return {
@@ -8,13 +9,12 @@ export const displayPopularMovies = (payload) => {
 }
 
 
-export const signIn = (email, password, emailKey, passwordKey) => {
+export const signIn = (email, password, user) => {
   return {
     type: 'SIGN_IN',
     email,
     password,
-    emailKey,
-    passwordKey
+    user
   }
 }
 
@@ -26,11 +26,11 @@ export const displaySearchedMovie = (query, payload) => {
   }
 }
 
-export const fetchData = (action) => {
-  if (action.type === 'popular') {
+export const fetchData = (params) => {
+  if (params.type === 'popular') {
     return fetchPopular()
-  } else if (action.type ==='search') {
-    return fetchSearchedMovie(action.query)
+  } else if (params.type ==='search') {
+    return fetchSearchedMovie(params.query)
   }
 }
 
@@ -67,9 +67,12 @@ const fetchSearchedMovie = (query) => {
 
 export const fetchLogin = (email, password) => {
   return (dispatch) => {
-    return fetch('http://localhost:3000/api/users')
-  .then(response => response.json())
-  .then(json => json.data[0])
-  .then(data => dispatch(signIn(email, password, data.email, data.password)))
+    console.log('in')
+    return fetch('/api/users', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({email, password})
+    }).then(data => dispatch(signIn(email,password, data)))
+      .then(data => browserHistory.push('/'))
   }
 }

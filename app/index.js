@@ -35,6 +35,7 @@ const router = (
   <Provider store={store}>
     <Router history={browserHistory} >
       <Route path='/' component={App}>
+      <IndexRedirect to='/login' component={LoginContainer} />
         <Route path='/login' component={LoginContainer} />
         <IndexRoute component={MovieIndexContainer} />
       </Route>
