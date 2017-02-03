@@ -15,8 +15,8 @@ export default class MovieIndex extends Component {
     this.props.fetchData({type: 'popular'})
   }
 
+
   handleSearch(e) {
-    console.log('empty')
     this.setState({draftMessage: e.target.value}, () => {
       if (this.state.draftMessage.length > 0) {
         this.props.fetchData({type: 'search', query: this.state.draftMessage})
@@ -27,17 +27,24 @@ export default class MovieIndex extends Component {
     })
   }
 
-  // loadMovies() {
-  //   if(this.props.movies.popularMovies) {
-  //   return this.props.movies.popularMovies.map((movie, i) => {
-  //     console.log('test')
-  //   return (movie.poster_path === null) ? null  : <li className='card' key={i}><img src={`https://image.tmdb.org/t/p/w342/${movie.poster_path}`} /></li>
-  //   })
-  // }
-  // }
+  loadMovies() {
+    if(this.props.movies.popularMovies) {
+    return this.props.movies.popularMovies.map((movie, i) => {
+    return (movie.poster_path === null) ? null  : <li className='card' key={i}><img src={`https://image.tmdb.org/t/p/w342/${movie.poster_path}`} /></li>
+    })
+    }
+  }
+
+  searchMovies() {
+    if(this.props.movies.searchedMovies) {
+
+    return this.props.movies.searchedMovies.map((movie, i) => {
+    return (movie.poster_path === null) ? null  : <li className='card' key={i}><img src={`https://image.tmdb.org/t/p/w342/${movie.poster_path}`} /></li>
+    })
+    }
+  }
 
   render() {
-    console.log(this.props.movies.popularMovies)
     const { fetchData, movies } = this.props
     return (
       <div>
@@ -54,10 +61,8 @@ export default class MovieIndex extends Component {
         </div>
         </form>
         <ul>
-          {this.props.movies.popularMovies.map((movie, i) => {
-            return <li className='card' key={i}><img src={`https://image.tmdb.org/t/p/w342/${movie.poster_path}`} /></li>
-          })}
-
+          {!this.state.draftMessage && this.loadMovies()}
+          {this.state.draftMessage && this.searchMovies()}
         </ul>
       </div>
     )

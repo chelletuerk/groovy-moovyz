@@ -5,8 +5,7 @@ const user = (state = {}, action) => {
     return {
       email: action.email,
       password: action.password,
-      emailKey: action.emailKey,
-      passwordKey: action.passwordKey
+      user: action.user
     }
 
   default:

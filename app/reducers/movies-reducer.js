@@ -2,7 +2,6 @@ const movies = (state = {}, action) => {
   switch (action.type) {
 
     case 'POPULAR_MOVIES':
-    console.log('movie')
     return Object.assign(state, {popularMovies: action.payload.results})
 
 
