@@ -1,14 +1,14 @@
 import { connect } from 'react-redux'
-import { fetchData } from '../actions'
+import { fetchData, sendFavorite } from '../actions'
 import MovieIndex from '../components/MovieIndex'
 
 const mapStateToProps = (state) => {
-  console.log(state.movies)
-  return {movies: state.movies }
+  return {movies: state.movies, user: state.user, favorites: state.movies}
 }
 
 const mapDispatchToProps = {
-    fetchData
+    fetchData,
+    sendFavorite
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(MovieIndex)

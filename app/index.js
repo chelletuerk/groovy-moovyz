@@ -19,18 +19,6 @@ const store = createStore(
   composeEnhancers(applyMiddleware(thunk))
 )
 
-// export const getRoutes = (store) => (
-//   const authRequired = (nextState, replaceState) => {
-//     // Now you can access the store object here.
-//     const state = store.getState();
-//
-//     if (!state.user.isAuthenticated) {
-//       // Not authenticated, redirect to login.
-//       replaceState({ nextPathname: nextState.location.pathname }, '/login');
-//     }
-//   };
-
-
 const router = (
   <Provider store={store}>
     <Router history={browserHistory} >
