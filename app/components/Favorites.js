@@ -15,7 +15,8 @@ export default class Favorites extends Component {
           src={`https://image.tmdb.org/t/p/w342/${movie.poster_path}`}
           />
         <Button
-          text="X"
+          text='X'
+          className='deleteFave'
           handleClick={(e) => this.props.deleteFavorite(movie, this.props.user.user)}
         />
       </li>

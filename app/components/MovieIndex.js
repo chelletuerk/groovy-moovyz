@@ -33,7 +33,7 @@ export default class MovieIndex extends Component {
     if(this.props.movies.popularMovies) {
     return this.props.movies.popularMovies.map((movie, i) => {
     return (movie.poster_path === null) ? null  : <li className='card' key={i}><img src={`https://image.tmdb.org/t/p/w342/${movie.poster_path}`} />
-    <Button text="&#9829;" handleClick={(e) => this.props.sendFavorite(movie, this.props.user.user)} /></li>
+    <Button className='heartBtn' text="&#9829;" handleClick={(e) => this.props.sendFavorite(movie, this.props.user.user)} /></li>
     })
     }
   }
@@ -42,7 +42,7 @@ export default class MovieIndex extends Component {
     if(this.props.movies.searchedMovies) {
     return this.props.movies.searchedMovies.map((movie, i) => {
     return (movie.poster_path === null) ? null  : <li className='card' key={i}><img src={`https://image.tmdb.org/t/p/w342/${movie.poster_path}`} />
-    <Button text="&#9829;" handleClick={(e) => this.props.sendFavorite(movie, this.props.user.user)} /></li>
+    <Button className='heartBtn' text='&#9829;' handleClick={(e) => this.props.sendFavorite(movie, this.props.user.user)} /></li>
     })
     }
   }
