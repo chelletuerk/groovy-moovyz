@@ -8,6 +8,13 @@ export const addFave = (movie) => {
   }
 }
 
+export const deleteFave = (movie) => {
+  return {
+    type: 'DELETE_FAVE',
+    movie
+  }
+}
+
 export const signIn = (email, password, user) => {
   return {
     type: 'SIGN_IN',
@@ -85,6 +92,11 @@ export const fetchLogin = (email, password) => {
 }
 
 export const sendFavorite = (movie, user) => {
+  if(!user){
+    alert('you must login to add favorites')
+    browserHistory.push('/login')
+    return
+  }
   return (dispatch) => {
     return fetch('api/users/favorites/new', {
       method: 'POST',
@@ -92,6 +104,17 @@ export const sendFavorite = (movie, user) => {
       body: JSON.stringify({movie_id: movie.id, user_id: user.id, title: movie.title, poster_path: movie.poster_path, release_date: movie.release_date, vote_average: movie.vote_average, overview: movie.overview})
     })
     .then(data => dispatch(addFave(movie)))
+    }
+  }
+
+  export const deleteFavorite = (movie, user) => {
+    return (dispatch) => {
+      return fetch(`api/users/${user.id}/favorites/${movie.id}`, {
+        method: 'DELETE',
+        headers: {'Content-Type' : 'application/json'},
+        // body: JSON.stringify({user_id: user.id, movie_id: movie.id})
+      })
+      .then(data => dispatch(deleteFave(movie)))
     }
   }
 

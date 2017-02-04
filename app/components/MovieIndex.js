@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import Button from './Button'
+import { Link } from 'react-router'
+
 
 
 export default class MovieIndex extends Component {
@@ -30,36 +32,44 @@ export default class MovieIndex extends Component {
   loadMovies() {
     if(this.props.movies.popularMovies) {
     return this.props.movies.popularMovies.map((movie, i) => {
-    return (movie.poster_path === null) ? null  : <li className='card' key={i}><img src={`https://image.tmdb.org/t/p/w342/${movie.poster_path}`} /><Button text="&#9829;" handleClick={(e) => this.props.sendFavorite(movie, this.props.user.user)} /></li>
+    return (movie.poster_path === null) ? null  : <li className='card' key={i}><img src={`https://image.tmdb.org/t/p/w342/${movie.poster_path}`} />
+    <Button text="&#9829;" handleClick={(e) => this.props.sendFavorite(movie, this.props.user.user)} /></li>
     })
     }
   }
 
   searchMovies() {
     if(this.props.movies.searchedMovies) {
-
     return this.props.movies.searchedMovies.map((movie, i) => {
-    return (movie.poster_path === null) ? null  : <li className='card' key={i}><img src={`https://image.tmdb.org/t/p/w342/${movie.poster_path}`} /></li>
+    return (movie.poster_path === null) ? null  : <li className='card' key={i}><img src={`https://image.tmdb.org/t/p/w342/${movie.poster_path}`} />
+    <Button text="&#9829;" handleClick={(e) => this.props.sendFavorite(movie, this.props.user.user)} /></li>
     })
     }
   }
 
   render() {
     const { fetchData, movies } = this.props
+    const { favorites } = this.props.favorites
     return (
       <div>
-      MOVIES
         <form onSubmit={(e) => {
           e.preventDefault()
           fetchData(this.state.draftMessage)
         }}>
         <div className='search'>
           <input
+            placeholder='search movies'
             value={this.state.draftMessage}
             onChange={this.handleSearch}
           />
         </div>
         </form>
+        {favorites.length > 0 && <Link to='/favorites'>
+          <Button text='favorites'/>
+        </Link>}
+        <Link to='/login'>
+          <Button text='sign in/sign up'/>
+        </Link>
         <ul>
           {!this.state.draftMessage && this.loadMovies()}
           {this.state.draftMessage && this.searchMovies()}
