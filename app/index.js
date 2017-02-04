@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 import App from './components/App'
 import MovieIndexContainer from './containers/MovieIndexContainer'
+import FavoritesContainer from './containers/FavoritesContainer'
 import LoginContainer from './containers/LoginContainer'
 import { Router, Route, IndexRoute, browserHistory, IndexRedirect } from 'react-router'
 import thunk from 'redux-thunk'
@@ -15,7 +16,7 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const store = createStore(
   combineReducers({user: user, movies: movies}),
-  {user: {}, movies: {popularMovies: [], searchedMovies: []}},
+  {user: {}, movies: {popularMovies: [], searchedMovies: [], favorites: []}},
   composeEnhancers(applyMiddleware(thunk))
 )
 
@@ -26,6 +27,7 @@ const router = (
       <IndexRedirect to='/login' component={LoginContainer} />
         <Route path='/login' component={LoginContainer} />
         <IndexRoute component={MovieIndexContainer} />
+        <Route path='/favorites' component={FavoritesContainer} />
       </Route>
     </Router>
   </Provider>

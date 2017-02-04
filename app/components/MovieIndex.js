@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import Button from './Button'
+import { Link } from 'react-router'
+
 
 
 export default class MovieIndex extends Component {
@@ -48,7 +50,6 @@ export default class MovieIndex extends Component {
     const { fetchData, movies } = this.props
     return (
       <div>
-      MOVIES
         <form onSubmit={(e) => {
           e.preventDefault()
           fetchData(this.state.draftMessage)
@@ -60,6 +61,9 @@ export default class MovieIndex extends Component {
           />
         </div>
         </form>
+        <Link to='/favorites'>
+          <Button text='favorites'/>
+        </Link>
         <ul>
           {!this.state.draftMessage && this.loadMovies()}
           {this.state.draftMessage && this.searchMovies()}
