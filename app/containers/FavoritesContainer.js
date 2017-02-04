@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { fetchData, sendFavorite } from '../actions'
+import { deleteFavorite } from '../actions'
 import Favorites from '../components/Favorites'
 
 const mapStateToProps = (state) => {
@@ -7,8 +7,7 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = {
-    fetchData,
-    sendFavorite
+  deleteFavorite
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Favorites)

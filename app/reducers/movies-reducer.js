@@ -11,6 +11,9 @@ const movies = (state = {}, action) => {
     case 'ADD_FAVE':
     const favorites = [action.movie, ...state.favorites]
     return Object.assign({}, state, { favorites })
+    // 
+    // case 'DELETE_FAVE':
+    //
 
     default:
       return state
