@@ -48,6 +48,7 @@ export default class MovieIndex extends Component {
 
   render() {
     const { fetchData, movies } = this.props
+    const { favorites } = this.props.favorites
     return (
       <div>
         <form onSubmit={(e) => {
@@ -56,13 +57,17 @@ export default class MovieIndex extends Component {
         }}>
         <div className='search'>
           <input
+            placeholder='search movies'
             value={this.state.draftMessage}
             onChange={this.handleSearch}
           />
         </div>
         </form>
-        <Link to='/favorites'>
+        {favorites.length > 0 && <Link to='/favorites'>
           <Button text='favorites'/>
+        </Link>}
+        <Link to='/login'>
+          <Button text='sign in/sign up'/>
         </Link>
         <ul>
           {!this.state.draftMessage && this.loadMovies()}

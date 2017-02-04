@@ -85,6 +85,11 @@ export const fetchLogin = (email, password) => {
 }
 
 export const sendFavorite = (movie, user) => {
+  if(!user){
+    alert('you must login to add favorites')
+    browserHistory.push('/login')
+    return
+  }
   return (dispatch) => {
     return fetch('api/users/favorites/new', {
       method: 'POST',
