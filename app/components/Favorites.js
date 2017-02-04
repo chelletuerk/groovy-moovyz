@@ -29,7 +29,7 @@ export default class Favorites extends Component {
       <div>
         <ul>
         {favorites.length > 1 && this.loadFavorites()}
-        {favorites.length < 2 && favorites}
+        {favorites.length < 1 && favorites}
         </ul>
       </div>
     )
