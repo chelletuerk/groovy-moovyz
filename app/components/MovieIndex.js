@@ -43,7 +43,7 @@ export default class MovieIndex extends Component {
                   (e) => {
                     if(e.target.id === 'favorited') {
                       alert('You sure you wanna add this twice??')
-                      return
+                        return
                     }
                     this.props.sendFavorite(movie, this.props.user.user)
                     e.target.id = 'favorited'
