@@ -15,8 +15,15 @@ import user from './reducers/user-reducer'
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const store = createStore(
-  combineReducers({user: user, movies: movies}),
-  {user: {}, movies: {popularMovies: [], searchedMovies: [], favorites: []}},
+  combineReducers({ user, movies }),
+  {
+    user: {},
+    movies: {
+      popularMovies: [],
+      searchedMovies: [],
+      favorites: [],
+    }
+  },
   composeEnhancers(applyMiddleware(thunk))
 )
 
