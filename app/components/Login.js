@@ -9,6 +9,7 @@ export default class Login extends Component {
     this.state = {
       email: '',
       password: '',
+      newUser: '',
     }
     this.updateEmail = this.updateEmail.bind(this)
     this.updatePassword = this.updatePassword.bind(this)
@@ -22,8 +23,12 @@ export default class Login extends Component {
     this.setState({password: e.target.value})
   }
 
+  updateUser(e) {
+    this.setState({newUser: e.target.value})
+  }
+
   render() {
-    const { fetchLogin } = this.props
+    const { fetchLogin, addUser } = this.props
     return (
       <div>
         <form onSubmit={(e) => {
@@ -32,14 +37,19 @@ export default class Login extends Component {
           this.setState({email: '', password: ''})
         }}>
           <input className='email' placeholder='email' onChange={this.updateEmail} value={this.state.email} />
-            <input placeholder='password' onChange={this.updatePassword} value={this.state.password} />
+          <input placeholder='password' onChange={this.updatePassword} value={this.state.password} />
               <Button
               className='loginBtn'
               text='login'
               />
           </form>
-        <form >
-          <input placeholder='add new user' />
+        <form onSubmit={(e) =>{
+          e.preventDefault()
+          addUser(this.state.newUser)
+        }}>
+          <input placeholder='New User Name' onChange={this.updateUser} value={this.state.newUser} />
+          <input placeholder='New User Email' onChange={this.updateUser} value={this.state.newUser} />
+          <input placeholder='Add New Password' onChange={this.updateUser} value={this.state.newUser} />
         </form>
       </div>
     )
