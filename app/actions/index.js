@@ -116,5 +116,4 @@ export const sendFavorite = (movie, user) => {
       })
       .then(data => dispatch(deleteFave(movie)))
     }
-    console.log(movie.id)
   }
