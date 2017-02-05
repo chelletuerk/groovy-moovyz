@@ -88,22 +88,30 @@ export const fetchLogin = (email, password) => {
       .then(data => data.json())
       .then(data => dispatch(signIn(email,password, data.data)))
       .then(data => browserHistory.push('/'))
+      .catch(err => alert('Email and Password do not match'))
   }
 }
 
 export const sendFavorite = (movie, user) => {
   if(!user){
     alert('you must login to add favorites')
-    browserHistory.push('/login')
-    return
+      browserHistory.push('/login')
+        return
   }
   return (dispatch) => {
     return fetch('api/users/favorites/new', {
       method: 'POST',
       headers: {'Content-Type' : 'application/json'},
-      body: JSON.stringify({movie_id: movie.id, user_id: user.id, title: movie.title, poster_path: movie.poster_path, release_date: movie.release_date, vote_average: movie.vote_average, overview: movie.overview})
+      body: JSON.stringify({
+        movie_id: movie.id,
+        user_id: user.id,
+        title: movie.title,
+        poster_path: movie.poster_path,
+        release_date: movie.release_date,
+        vote_average: movie.vote_average,
+        overview: movie.overview})
     })
-    .then(data => dispatch(addFave(movie)))
+      .then(data => dispatch(addFave(movie)))
     }
   }
 
@@ -112,7 +120,6 @@ export const sendFavorite = (movie, user) => {
       return fetch(`api/users/${user.id}/favorites/${movie.id}`, {
         method: 'DELETE',
         headers: {'Content-Type' : 'application/json'},
-        // body: JSON.stringify({user_id: user.id, movie_id: movie.id})
       })
       .then(data => dispatch(deleteFave(movie)))
     }

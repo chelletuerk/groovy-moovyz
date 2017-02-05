@@ -64,12 +64,13 @@ export default class MovieIndex extends Component {
                 <img
                   src={`https://image.tmdb.org/t/p/w342/${movie.poster_path}`}
                 />
-              <Button
-                className='heartBtn'
-                text='&#9829;'
-                handleClick={
-                  (e) => this.props.sendFavorite(movie, this.props.user.user)
-                } />
+                <Button
+                  className='heartBtn'
+                  text='&#9829;'
+                  handleClick={
+                    (e) => this.props.sendFavorite(movie, this.props.user.user)
+                  }
+                />
               </li>
             })
           }
