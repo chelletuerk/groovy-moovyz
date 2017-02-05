@@ -10,9 +10,14 @@ export default class Login extends Component {
       email: '',
       password: '',
       newUser: '',
+      newUserEmail: '',
+      newUserPassword: '',
     }
     this.updateEmail = this.updateEmail.bind(this)
     this.updatePassword = this.updatePassword.bind(this)
+    this.updateNewUser = this.updateNewUser.bind(this)
+    this.updateNewUserEmail = this.updateNewUserEmail.bind(this)
+    this.updateNewUserPassword = this.updateNewUserPassword.bind(this)
   }
 
   updateEmail(e) {
@@ -23,9 +28,19 @@ export default class Login extends Component {
     this.setState({password: e.target.value})
   }
 
-  updateUser(e) {
+  updateNewUser(e) {
     this.setState({newUser: e.target.value})
   }
+
+  updateNewUserEmail(e) {
+    this.setState({newUserEmail: e.target.value})
+  }
+
+  updateNewUserPassword(e) {
+    this.setState({newUserPassword: e.target.value})
+  }
+
+
 
   render() {
     const { fetchLogin, addUser } = this.props
@@ -45,11 +60,12 @@ export default class Login extends Component {
           </form>
         <form onSubmit={(e) =>{
           e.preventDefault()
-          addUser(this.state.newUser)
+          addUser(this.state.newUser, this.state.newUserPassword, this.state.newUserEmail)
         }}>
-          <input placeholder='New User Name' onChange={this.updateUser} value={this.state.newUser} />
-          <input placeholder='New User Email' onChange={this.updateUser} value={this.state.newUser} />
-          <input placeholder='Add New Password' onChange={this.updateUser} value={this.state.newUser} />
+          <input placeholder='New User Name' onChange={this.updateNewUser} value={this.state.newUser} />
+          <input placeholder='New User Email' onChange={this.updateNewUserEmail} value={this.state.newUserEmail} />
+          <input placeholder='New User Password' onChange={this.updateNewUserPassword} value={this.state.newUserPassword} />
+          <Button text='Add New User' />
         </form>
       </div>
     )

@@ -125,13 +125,13 @@ export const sendFavorite = (movie, user) => {
     }
   }
 
-  export const addUser = (user) => {
+  export const addUser = (name, email, password) => {
       return (dispatch) => {
         return fetch('/api/users/new', {
           method: 'POST',
           headers: {'Content-Type' : 'application/json'},
+          body: JSON.stringify({name, email, password})
         })
         // .then(data => dispatch)
       }
     }
-  
