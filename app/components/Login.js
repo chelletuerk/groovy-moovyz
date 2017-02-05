@@ -60,7 +60,8 @@ export default class Login extends Component {
           </form>
         <form onSubmit={(e) =>{
           e.preventDefault()
-          addUser(this.state.newUser, this.state.newUserPassword, this.state.newUserEmail)
+          addUser(this.state.newUser, this.state.newUserEmail, this.state.newUserPassword)
+          this.setState({newUser: '', newUserEmail: '', newUserPassword: ''})
         }}>
           <input placeholder='New User Name' onChange={this.updateNewUser} value={this.state.newUser} />
           <input placeholder='New User Email' onChange={this.updateNewUserEmail} value={this.state.newUserEmail} />

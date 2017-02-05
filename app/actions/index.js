@@ -99,7 +99,7 @@ export const sendFavorite = (movie, user) => {
         return
   }
   return (dispatch) => {
-    return fetch('/users/favorites/new', {
+    return fetch('api/users/favorites/new', {
       method: 'POST',
       headers: {'Content-Type' : 'application/json'},
       body: JSON.stringify({
@@ -117,7 +117,7 @@ export const sendFavorite = (movie, user) => {
 
   export const deleteFavorite = (movie, user) => {
     return (dispatch) => {
-      return fetch(`/users/${user.id}/favorites/${movie.id}`, {
+      return fetch(`api/users/${user.id}/favorites/${movie.id}`, {
         method: 'DELETE',
         headers: {'Content-Type' : 'application/json'},
       })
