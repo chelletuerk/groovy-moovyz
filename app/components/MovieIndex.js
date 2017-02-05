@@ -2,8 +2,6 @@ import React, { Component } from 'react'
 import Button from './Button'
 import { Link } from 'react-router'
 
-
-
 export default class MovieIndex extends Component {
   constructor(props) {
     super(props)
@@ -17,13 +15,11 @@ export default class MovieIndex extends Component {
     this.props.fetchData({type: 'popular'})
   }
 
-
   handleSearch(e) {
     this.setState({draftMessage: e.target.value}, () => {
       if (this.state.draftMessage.length > 0) {
         this.props.fetchData({type: 'search', query: this.state.draftMessage})
-      }
-      if (this.state.draftMessage.length < 1) {
+      } else {
         this.props.fetchData({type: 'popular'})
       }
     })
@@ -31,10 +27,26 @@ export default class MovieIndex extends Component {
 
   loadMovies() {
     if(this.props.movies.popularMovies) {
-    return this.props.movies.popularMovies.map((movie, i) => {
-    return (movie.poster_path === null) ? null  : <li className='card' key={i}><img src={`https://image.tmdb.org/t/p/w342/${movie.poster_path}`} />
-    <Button className='heartBtn' text="&#9829;" handleClick={(e) => this.props.sendFavorite(movie, this.props.user.user)} /></li>
-    })
+      return this.props.movies.popularMovies.map((movie, i) => {
+        return (
+          (movie.poster_path === null)
+          ? null
+          : (
+            <li className='card' key={i}>
+              <img
+                src={`https://image.tmdb.org/t/p/w342/${movie.poster_path}`}
+              />
+              <Button
+                className='heartBtn'
+                text="&#9829;"
+                handleClick={
+                  (e) => this.props.sendFavorite(movie, this.props.user.user)
+                }
+              />
+            </li>
+          )
+        )
+      })
     }
   }
 

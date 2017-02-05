@@ -33,9 +33,9 @@ export const displayPopularMovies = (payload) => {
 
 export const displaySearchedMovie = (query, payload) => {
   return {
-  type: 'SEARCHED_MOVIE',
-  query,
-  payload,
+    type: 'SEARCHED_MOVIE',
+    query,
+    payload,
   }
 }
 
@@ -56,7 +56,7 @@ const fetchPopular = () => {
       .then(response => {
         return response.json()
       })
-      .then( json => {
+      .then(json => {
         dispatch(displayPopularMovies(json))
       })
       .catch(err => console.log('err'))
@@ -66,16 +66,16 @@ const fetchPopular = () => {
 const fetchSearchedMovie = (query) => {
   const baseUrl = 'https://api.themoviedb.org/3/'
   const search = `search/movie?api_key=5cfdb8d0915ecb8d60d107cef74a22e8&query=${query}`
-      return (dispatch) => {
+  return (dispatch) => {
     fetch(`${baseUrl}${search}`)
-        .then(response => {
-          return response.json()
-        })
-        .then( json => {
-          dispatch(displaySearchedMovie(query, json))
-        })
-        .catch(err => console.log('err'))
-      }
+      .then(response => {
+        return response.json()
+      })
+      .then( json => {
+        dispatch(displaySearchedMovie(query, json))
+      })
+      .catch(err => console.log('err'))
+  }
 }
 
 export const fetchLogin = (email, password) => {
@@ -85,8 +85,8 @@ export const fetchLogin = (email, password) => {
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({email, password})
     })
-    .then(data => data.json())
-    .then(data => dispatch(signIn(email,password, data.data)))
+      .then(data => data.json())
+      .then(data => dispatch(signIn(email,password, data.data)))
       .then(data => browserHistory.push('/'))
   }
 }
@@ -116,7 +116,5 @@ export const sendFavorite = (movie, user) => {
       })
       .then(data => dispatch(deleteFave(movie)))
     }
+    console.log(movie.id)
   }
-
-
-// movie_id, user_id, user_title, poster_path, release_date, vote_average, overview
