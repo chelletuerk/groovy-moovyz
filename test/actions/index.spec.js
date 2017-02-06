@@ -1,7 +1,8 @@
-import * as actions from '../../actions/index'
 import React from 'react';
 import { mount, shallow } from 'enzyme';
 import { expect, assert } from 'chai';
+
+import * as actions from '../../app/actions/index'
 
 describe('actions', () => {
   it('should create an action to make an array of popular movies', () => {

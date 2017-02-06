@@ -41,7 +41,7 @@ export default class Login extends Component {
               <Button
               className='loginBtn'
               text='login'
-              />
+          />
           </form>
         <form onSubmit={(e) =>{
           e.preventDefault()
