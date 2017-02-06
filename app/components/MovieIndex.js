@@ -89,10 +89,10 @@ export default class MovieIndex extends Component {
           />
         </div>
         </form>
-        {favorites.length > 0 && <Link to='/favorites'>
+        {favorites.length > 0 && <Link className="favelink" to='/favorites'>
           <Button className="favorites" text='favorites'/>
         </Link>}
-        <Link to='/login'>
+        <Link className="signlink" to='/login'>
           <Button className="sign-in" text='sign in/sign up'/>
         </Link>
         <ul>

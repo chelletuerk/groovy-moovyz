@@ -10,7 +10,7 @@ export default class App extends Component {
   render() {
     return (
       <div>
-        <Link id="tite" to="/"><h1 className='header-title'>Groovie Movies</h1></Link>
+        <Link to="/"><h1 className='header-title'>Groovie Movies</h1></Link>
         {this.props.children}
       </div>
     )

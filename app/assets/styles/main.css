@@ -146,8 +146,8 @@ body {
   background-color: black;
 }
 
-.favorites, .sign-in {
+.favelink, .signlink {
   display: block;
   width: 120px;
-  margin-left: 47%;
+  margin-left: 42%;
 }
