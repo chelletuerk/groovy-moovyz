@@ -60,7 +60,7 @@ export default class MovieIndex extends Component {
   searchMovies() {
     if(this.props.movies.searchedMovies) {
       return this.props.movies.searchedMovies.map((movie, i) => {
-          return ( 
+          return (
             movie.poster_path === null) ? null : <li className='card' key={i}>
                 <img src={`https://image.tmdb.org/t/p/w342/${movie.poster_path}`} />
                 <Button
@@ -90,10 +90,10 @@ export default class MovieIndex extends Component {
         </div>
         </form>
         {favorites.length > 0 && <Link to='/favorites'>
-          <Button text='favorites'/>
+          <Button className="favorites" text='favorites'/>
         </Link>}
         <Link to='/login'>
-          <Button text='sign in/sign up'/>
+          <Button className="sign-in" text='sign in/sign up'/>
         </Link>
         <ul>
           {!this.state.draftMessage && this.loadMovies()}
