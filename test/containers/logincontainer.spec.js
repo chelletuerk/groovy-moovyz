@@ -3,11 +3,11 @@ import { shallow, mount } from 'enzyme'
 import { expect, assert } from 'chai'
 import sinon from 'sinon'
 
-import MovieIndexContainer, { mapStateToProps } from '../../app/containers/MovieIndexContainer'
+import LoginContainer, { mapStateToProps } from '../../app/containers/LoginContainer'
 
-describe('MovieIndexContainer', () => {
+describe('LoginContainer', () => {
   it.skip('map state to props', () => {
-    const wrapper = mount(<MovieIndexContainer />)
+    const wrapper = mount(<LoginContainer />)
     assert.isFunction(mapStateToProps);
   });
 });

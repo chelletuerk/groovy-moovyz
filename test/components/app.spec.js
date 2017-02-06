@@ -9,4 +9,8 @@ describe('App', () => {
     const wrapper = shallow(<App />);
     expect(wrapper.find('h1').text()).to.equal('Groovie Movies');
   });
+  it('should have a home Link in the header', () => {
+    const wrapper = shallow(<App />);
+    expect(wrapper.find('Link').prop('to')).to.equal('/');
+  });
 })

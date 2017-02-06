@@ -15,7 +15,7 @@ describe('MovieIndex', () => {
     expect(wrapper.state().draftMessage).to.deep.equal('');
   });
 
-  it('should have a button to select a favorite', () => {
+  it('should have a button to load favorites', () => {
     const wrapper = shallow(<MovieIndex
     movies={fakeMovies} favorites={fakeArray} fetchData={fetchData}/>);
     expect(wrapper.find('.favorites').length).to.equal(1);
