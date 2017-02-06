@@ -4,6 +4,7 @@ import Button from './Button'
 export default class Favorites extends Component {
   loadFavorites() {
     return this.props.favorites.favorites.map((movie, i) => {
+      console.log(movie)
       return (
         (movie.poster_path === null)
         ? null
@@ -21,6 +22,7 @@ export default class Favorites extends Component {
                 e => this.props.deleteFavorite(movie, this.props.user.user)
               }
               />
+              <h4 className='overview'>{movie.overview}</h4>
 
           </li>
       )
