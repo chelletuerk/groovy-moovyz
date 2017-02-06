@@ -63,10 +63,11 @@ export default class MovieIndex extends Component {
         return (
             movie.poster_path === null) ? null : <li className='card' key={i}>
                 <img src={`https://image.tmdb.org/t/p/w342/${movie.poster_path}`} />
-                <Button
+               <Button
                   className='heartBtn'
                   text='&#9829;'
-                  handleClick={ e => this.props.sendFavorite(movie, this.props.user.user)} />
+                  handleClick={ e => this.props.sendFavorite(movie, this.props.user.user)}
+                />
               </li>
       })
     }

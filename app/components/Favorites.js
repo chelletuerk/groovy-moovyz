@@ -21,6 +21,7 @@ export default class Favorites extends Component {
                 e => this.props.deleteFavorite(movie, this.props.user.user)
               }
             />
+            <h4>{movie.overview}</h4>
           </li>
       )
     })
