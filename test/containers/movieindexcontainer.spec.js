@@ -2,13 +2,14 @@ import React from 'react'
 import { shallow, mount } from 'enzyme'
 import { expect, assert } from 'chai'
 import sinon from 'sinon'
+import configureMockStore from 'redux-mock-store';
 import { Provider } from 'react-redux';
 
 import * as actions from '../../app/actions/index'
 import MovieIndexContainer, { mapStateToProps } from '../../app/containers/MovieIndexContainer'
 
-import configureMockStore from 'redux-mock-store';
-const fakeStore = configureMockStore()({movies: []})
+
+const fakeStore = configureMockStore()({ movies: [] })
 
 // const setup = () => {
 //   const props = {
