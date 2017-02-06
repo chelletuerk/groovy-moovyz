@@ -4,7 +4,6 @@ import Button from './Button'
 export default class Favorites extends Component {
   loadFavorites() {
     return this.props.favorites.favorites.map((movie, i) => {
-      console.log(movie)
       return (
         (movie.poster_path === null)
         ? null
