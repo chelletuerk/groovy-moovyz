@@ -21,9 +21,8 @@ export default class Favorites extends Component {
               handleClick={
                 e => this.props.deleteFavorite(movie, this.props.user.user)
               }
-              />
-              <h4 className='overview'>{movie.overview}</h4>
-
+            />
+            <h4>{movie.overview}</h4>
           </li>
       )
     })
