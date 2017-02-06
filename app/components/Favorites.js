@@ -27,11 +27,13 @@ export default class Favorites extends Component {
   }
 
   render() {
+    const { favorites } = this.props.favorites
     return (
       <div>
         <ul>
           {this.loadFavorites()}
         </ul>
+        {<h4>{favorites.length < 1 && 'You have no favorites'}</h4>}
       </div>
     )
   }
