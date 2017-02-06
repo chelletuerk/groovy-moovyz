@@ -6,7 +6,7 @@ import App from '../../app/components/App'
 
 describe('App', () => {
   it('should show title "Groovie Movies"', () => {
-    let wrapper = shallow(<App />);
+    const wrapper = shallow(<App />);
     expect(wrapper.find('h1').text()).to.equal('Groovie Movies');
   });
 })

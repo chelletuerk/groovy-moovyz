@@ -6,7 +6,6 @@ import sinon from 'sinon'
 import Button from '../../app/components/Button'
 
 describe('Button', () => {
-
   it('should have a handleClick', () => {
     const handleClick = sinon.spy()
     const wrapper = shallow(<Button handleClick={handleClick} />)
@@ -22,10 +21,9 @@ describe('Button', () => {
   });
 
   it('should allow props to be set', () => {
-  const wrapper = mount(<Button prop="setProp" />);
-  expect(wrapper.props().prop).to.equal("setProp");
-  wrapper.setProps({ prop: "newProp" });
-  expect(wrapper.props().prop).to.equal("newProp");
+    const wrapper = mount(<Button prop="setProp" />);
+    expect(wrapper.props().prop).to.equal('setProp');
+    wrapper.setProps({ prop: 'newProp' });
+    expect(wrapper.props().prop).to.equal('newProp');
   });
-
 });

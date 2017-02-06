@@ -56,19 +56,18 @@ describe('actions', () => {
     const expectedAction = {
       type: 'SEARCHED_MOVIE',
       query: 'Crash',
-      payload: ['Crash', 'Crash']
-      }
-      expect(actions.displaySearchedMovie(query, payload)).to.deep.equal(expectedAction)
+      payload: ['Crash', 'Crash'],
+    }
+    expect(actions.displaySearchedMovie(query, payload)).to.deep.equal(expectedAction)
   })
   it.skip('should fetch popular movies if param type is popular', () => {
-    const params = {type: 'popular'}
-      const fetchPopular = sinon.spy()
+    const params = { type: 'popular' }
+    const fetchPopular = sinon.spy()
     expect(actions.fetchData(params)).to.equal(fetchPopular.calledOnce, true)
   })
   it.skip('should alert user if they try to add a favorite without logging in', () => {
     const movie = 'Crash'
-      const user = false
-      expect(actions.sendFavorite(movie, user)).to.deep.equal('you must login to add favorites')
+    const user = false
+    expect(actions.sendFavorite(movie, user)).to.deep.equal('you must login to add favorites')
   })
-
 })
