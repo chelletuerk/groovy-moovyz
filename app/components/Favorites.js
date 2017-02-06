@@ -8,7 +8,7 @@ export default class Favorites extends Component {
       return (
         (movie.poster_path === null)
         ? null
-        : <li
+        : <div> <li
             className='card'
             key={i}
           >
@@ -22,8 +22,9 @@ export default class Favorites extends Component {
                 e => this.props.deleteFavorite(movie, this.props.user.user)
               }
             />
-            <h4>{movie.overview}</h4>
           </li>
+          <h4>{movie.overview}</h4>
+          </div>
       )
     })
   }
