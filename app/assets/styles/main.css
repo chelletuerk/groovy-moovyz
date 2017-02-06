@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Amatic+SC|Barrio");
+@import url("https://fonts.googleapis.com/css?family=Amatic+SC%7CBarrio");
 
 .header-title {
   font-family: 'Barrio', cursive;
@@ -43,8 +43,6 @@ box-shadow: 0px 0px 15px 10px rgba(255, 255, 255, .75);
   bottom: 30px;
   right: 50px;
   outline: none;
-  padding-right: 15%;
-  padding-left: 115%;
 }
 
 .deleteFave {
@@ -65,6 +63,10 @@ box-shadow: 0px 0px 15px 10px rgba(255, 255, 255, .75);
 
 .deleteFave:hover {
   color: white;
+}
+
+.heartBtn {
+  margin-right: -15%;
 }
 
 .heartBtn:hover {
@@ -142,4 +144,18 @@ ul {
 
 body {
   background-color: black;
+}
+
+.favelink, .signlink {
+  display: block;
+  width: 120px;
+  margin-left: 42%;
+}
+
+h4 {
+  color: white;
+  font-family: 'Amatic SC', cursive;
+  font-size: 23px;
+  text-align: center;
+  margin-top: 40px;
 }
