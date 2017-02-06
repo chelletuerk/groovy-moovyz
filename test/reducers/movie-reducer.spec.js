@@ -9,7 +9,7 @@ describe('movies reducer', () => {
   it('POPULAR_MOVIES should change the initial state', () => {
     const action = {
       type: 'POPULAR_MOVIES',
-      payload: { popularMovies: ['movies', 'movie2', 'movie3'] },
+      payload: { results: ['movie1', 'movie2', 'movie3'] },
     }
     expect(movies(undefined, action)).to.deep.equal({ popularMovies: ['movie1', 'movie2', 'movie3'] })
   });
@@ -17,7 +17,16 @@ describe('movies reducer', () => {
   it('SEARCHED_MOVIE should change the initial state', () => {
     const action = {
       type: 'SEARCHED_MOVIE',
-      payload: { searchedMovies: ['movie1', 'movie2', 'movie3'] },
+
+      payload: { results: ['movie1', 'movie2', 'movie3'] },
+    }
+    expect(movies(undefined, action)).to.deep.equal({ searchedMovies: ['movie1', 'movie2', 'movie3'] })
+  });
+
+  it.skip('ADD_FAVE should change the initial state', () => {
+    const action = {
+      type: 'ADD_FAVE',
+      movie: { favorites: ['movie1', 'movie2', 'movie3'] },
     }
     expect(movies(undefined, action)).to.deep.equal({ searchedMovies: ['movie1', 'movie2', 'movie3'] })
   });
