@@ -1,8 +1,7 @@
-import user from '../../app/reducers/user-reducer'
 import { expect, assert } from 'chai'
+import user from '../../app/reducers/user-reducer'
 
 describe('user reducer', () => {
-
   it('should return state when someone signs in', () => {
     const action = {
       type: 'SIGN_IN',
@@ -13,6 +12,6 @@ describe('user reducer', () => {
     expect(user(undefined, action)).to.deep.equal({
       email: 'lauren@gmail.com',
       password: 'alligator',
-      user: 'Lauren'});
-    })
+      user: 'Lauren' });
   })
+})

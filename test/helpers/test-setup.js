@@ -1,7 +1,7 @@
 // helpers/test-setup.js
 
 require('babel-register')({
-  presets: ["react", "es2015"]
+  presets: ['react', 'es2015'],
 });
 
 // HELP MOCHA HANDLE CSS MODULES
