@@ -43,7 +43,7 @@ export default class MovieIndex extends Component {
                   (e) => {
                     if(e.target.id === 'favorited') {
                       alert('You sure you wanna add this twice??')
-                      return
+                        return
                     }
                     this.props.sendFavorite(movie, this.props.user.user)
                     e.target.id = 'favorited'
@@ -60,21 +60,13 @@ export default class MovieIndex extends Component {
   searchMovies() {
     if(this.props.movies.searchedMovies) {
       return this.props.movies.searchedMovies.map((movie, i) => {
-          return
-            (movie.poster_path === null)
-            ? null
-            :
-              <li className='card' key={i}>
-                <img
-                  src={`https://image.tmdb.org/t/p/w342/${movie.poster_path}`}
-                />
+          return ( 
+            movie.poster_path === null) ? null : <li className='card' key={i}>
+                <img src={`https://image.tmdb.org/t/p/w342/${movie.poster_path}`} />
                 <Button
                   className='heartBtn'
                   text='&#9829;'
-                  handleClick={
-                    (e) => this.props.sendFavorite(movie, this.props.user.user)
-                  }
-                />
+                  handleClick={ (e) => this.props.sendFavorite(movie, this.props.user.user)} />
               </li>
             })
           }

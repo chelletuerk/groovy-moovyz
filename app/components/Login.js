@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Link, browserHistory } from 'react-router'
 import Button from './Button'
 
 
@@ -10,46 +9,40 @@ export default class Login extends Component {
       email: '',
       password: '',
       newUser: '',
+      newUserEmail: '',
+      newUserPassword: '',
     }
-    this.updateEmail = this.updateEmail.bind(this)
-    this.updatePassword = this.updatePassword.bind(this)
+    this.updateInput = this.updateInput.bind(this)
   }
 
-  updateEmail(e) {
-    this.setState({email: e.target.value})
-  }
-
-  updatePassword(e) {
-    this.setState({password: e.target.value})
-  }
-
-  updateUser(e) {
-    this.setState({newUser: e.target.value})
+  updateInput(e) {
+    this.setState({[e.target.id]: e.target.value})
   }
 
   render() {
     const { fetchLogin, addUser } = this.props
+    const { email, password, newUserEmail, newUserPassword, newUser } = this.state
     return (
       <div>
         <form onSubmit={(e) => {
           e.preventDefault()
-          fetchLogin(this.state.email, this.state.password)
+          fetchLogin(email, password)
           this.setState({email: '', password: ''})
         }}>
-          <input className='email' placeholder='email' onChange={this.updateEmail} value={this.state.email} />
-          <input placeholder='password' onChange={this.updatePassword} value={this.state.password} />
-              <Button
-              className='loginBtn'
-              text='login'
-          />
+
+          <input className='email' placeholder='email' id="email" onChange={this.updateInput} value={email} />
+          <input placeholder='password' id="password" onChange={this.updateInput} value={password} />
+            <Button className='loginBtn' text='login' />
           </form>
         <form onSubmit={(e) =>{
           e.preventDefault()
-          addUser(this.state.newUser)
+          addUser(newUser, newUserEmail, newUserPassword)
+          this.setState({newUser: '', newUserEmail: '', newUserPassword: ''})
         }}>
-          <input placeholder='New User Name' onChange={this.updateUser} value={this.state.newUser} />
-          <input placeholder='New User Email' onChange={this.updateUser} value={this.state.newUser} />
-          <input placeholder='Add New Password' onChange={this.updateUser} value={this.state.newUser} />
+          <input placeholder='New User Name' onChange={this.updateInput} value={newUser} id="newUser" />
+          <input placeholder='New User Email' onChange={this.updateInput} value={newUserEmail} id="newUserEmail"/>
+          <input placeholder='New User Password' onChange={this.updateInput} value={newUserPassword} id="newUserPassword" />
+            <Button text='Add New User' />
         </form>
       </div>
     )
