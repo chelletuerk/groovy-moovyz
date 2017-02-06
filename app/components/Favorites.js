@@ -18,11 +18,11 @@ export default class Favorites extends Component {
               text='&#xd7;'
               className='deleteFave'
               handleClick={
-                (e) => this.props.deleteFavorite(movie, this.props.user.user)
+                e => this.props.deleteFavorite(movie, this.props.user.user)
               }
             />
           </li>
-        )
+      )
     })
   }
 

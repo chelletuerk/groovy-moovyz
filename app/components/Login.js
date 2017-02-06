@@ -16,7 +16,7 @@ export default class Login extends Component {
   }
 
   updateInput(e) {
-    this.setState({[e.target.id]: e.target.value})
+    this.setState({ [e.target.id]: e.target.value })
   }
 
   render() {
@@ -27,17 +27,17 @@ export default class Login extends Component {
         <form onSubmit={(e) => {
           e.preventDefault()
           fetchLogin(email, password)
-          this.setState({email: '', password: ''})
+          this.setState({ email: '', password: '' })
         }}>
 
           <input className='email' placeholder='email' id="email" onChange={this.updateInput} value={email} />
           <input placeholder='password' id="password" onChange={this.updateInput} value={password} />
             <Button className='loginBtn' text='login' />
           </form>
-        <form onSubmit={(e) =>{
+        <form onSubmit={(e) => {
           e.preventDefault()
           addUser(newUser, newUserEmail, newUserPassword)
-          this.setState({newUser: '', newUserEmail: '', newUserPassword: ''})
+          this.setState({ newUser: '', newUserEmail: '', newUserPassword: '' })
         }}>
           <input placeholder='New User Name' onChange={this.updateInput} value={newUser} id="newUser" />
           <input placeholder='New User Email' onChange={this.updateInput} value={newUserEmail} id="newUserEmail"/>

@@ -1,14 +1,14 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
+import thunk from 'redux-thunk'
+import { Router, Route, IndexRoute, browserHistory, IndexRedirect } from 'react-router'
+import { Provider } from 'react-redux'
+import { createStore, applyMiddleware, combineReducers, compose } from 'redux'
 import App from './components/App'
 import MovieIndexContainer from './containers/MovieIndexContainer'
 import FavoritesContainer from './containers/FavoritesContainer'
 import LoginContainer from './containers/LoginContainer'
-import { Router, Route, IndexRoute, browserHistory, IndexRedirect } from 'react-router'
-import thunk from 'redux-thunk'
 
-import { Provider } from 'react-redux'
-import { createStore, applyMiddleware, combineReducers, compose } from 'redux'
 import movies from './reducers/movies-reducer'
 import user from './reducers/user-reducer'
 
@@ -22,9 +22,9 @@ const store = createStore(
       popularMovies: [],
       searchedMovies: [],
       favorites: [],
-    }
+    },
   },
-  composeEnhancers(applyMiddleware(thunk))
+  composeEnhancers(applyMiddleware(thunk)),
 )
 
 const router = (

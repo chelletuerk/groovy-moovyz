@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import Button from './Button'
 import { Link } from 'react-router'
+import Button from './Button'
 
 export default class MovieIndex extends Component {
   constructor(props) {
@@ -12,21 +12,21 @@ export default class MovieIndex extends Component {
   }
 
   componentDidMount() {
-    this.props.fetchData({type: 'popular'})
+    this.props.fetchData({ type: 'popular' })
   }
 
   handleSearch(e) {
-    this.setState({draftMessage: e.target.value}, () => {
+    this.setState({ draftMessage: e.target.value }, () => {
       if (this.state.draftMessage.length > 0) {
-        this.props.fetchData({type: 'search', query: this.state.draftMessage})
+        this.props.fetchData({ type: 'search', query: this.state.draftMessage })
       } else {
-        this.props.fetchData({type: 'popular'})
+        this.props.fetchData({ type: 'popular' })
       }
     })
   }
 
   loadMovies() {
-    if(this.props.movies.popularMovies) {
+    if (this.props.movies.popularMovies) {
       return this.props.movies.popularMovies.map((movie, i) => {
         return (
           (movie.poster_path === null)
@@ -41,9 +41,9 @@ export default class MovieIndex extends Component {
                 text="&#9829;"
                 handleClick={
                   (e) => {
-                    if(e.target.id === 'favorited') {
+                    if (e.target.id === 'favorited') {
                       alert('You sure you wanna add this twice??')
-                        return
+                      return
                     }
                     this.props.sendFavorite(movie, this.props.user.user)
                     e.target.id = 'favorited'
@@ -58,19 +58,19 @@ export default class MovieIndex extends Component {
   }
 
   searchMovies() {
-    if(this.props.movies.searchedMovies) {
+    if (this.props.movies.searchedMovies) {
       return this.props.movies.searchedMovies.map((movie, i) => {
-          return (
+        return (
             movie.poster_path === null) ? null : <li className='card' key={i}>
                 <img src={`https://image.tmdb.org/t/p/w342/${movie.poster_path}`} />
                 <Button
                   className='heartBtn'
                   text='&#9829;'
-                  handleClick={ (e) => this.props.sendFavorite(movie, this.props.user.user)} />
+                  handleClick={ e => this.props.sendFavorite(movie, this.props.user.user)} />
               </li>
-            })
-          }
-        }
+      })
+    }
+  }
 
   render() {
     const { fetchData, movies } = this.props
