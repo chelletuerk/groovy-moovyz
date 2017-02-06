@@ -17,7 +17,7 @@ describe('movies reducer', () => {
   it('SEARCHED_MOVIE should change the initial state', () => {
     const action = {
       type: 'SEARCHED_MOVIE',
-      payload: { searchedMovies: ['movies', 'movie2', 'movie3'] },
+      payload: { searchedMovies: ['movie1', 'movie2', 'movie3'] },
     }
     expect(movies(undefined, action)).to.deep.equal({ searchedMovies: ['movie1', 'movie2', 'movie3'] })
   });
