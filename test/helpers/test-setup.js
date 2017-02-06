@@ -1,6 +1,8 @@
 // helpers/test-setup.js
 
-require('babel-register')();
+require('babel-register')({
+  presets: ["react", "es2015"]
+});
 
 // HELP MOCHA HANDLE CSS MODULES
 
@@ -19,7 +21,7 @@ var jsdom = require('jsdom').jsdom;
 
 var exposedProperties = ['window', 'navigator', 'document'];
 
-global.document = jsdom('');
+global.document = jsdom("<head> <meta charset='UTF-8'></head><div id='application'></div>");
 global.window = document.defaultView;
 Object.keys(document.defaultView).forEach((property) => {
   if (typeof global[property] === 'undefined') {

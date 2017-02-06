@@ -29,6 +29,7 @@ export default class Login extends Component {
           fetchLogin(email, password)
           this.setState({email: '', password: ''})
         }}>
+
           <input className='email' placeholder='email' id="email" onChange={this.updateInput} value={email} />
           <input placeholder='password' id="password" onChange={this.updateInput} value={password} />
             <Button className='loginBtn' text='login' />
