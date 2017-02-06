@@ -7,8 +7,12 @@ describe('user reducer', () => {
     const action = {
       type: 'SIGN_IN',
       password: 'alligator',
+      email: 'lauren@gmail.com',
       user: 'Lauren',
     }
-    expect(user(undefined, action)).toEqual([{type: 'SIGN_IN', password: 'alligator', user: 'Lauren'}]);
-  });
-});
+    expect(user(undefined, action)).to.deep.equal({
+      email: 'lauren@gmail.com',
+      password: 'alligator',
+      user: 'Lauren'});
+    })
+  })
