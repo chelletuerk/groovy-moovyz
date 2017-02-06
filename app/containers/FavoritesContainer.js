@@ -3,11 +3,11 @@ import { deleteFavorite } from '../actions'
 import Favorites from '../components/Favorites'
 
 const mapStateToProps = (state) => {
-  return {user: state.user, favorites: state.movies}
+  return { user: state.user, favorites: state.movies }
 }
 
 const mapDispatchToProps = {
-  deleteFavorite
+  deleteFavorite,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Favorites)
