@@ -146,8 +146,8 @@ body {
   background-color: black;
 }
 
-a {
-  display: inline-block;
+.favorites, .sign-in {
+  display: block;
   width: 120px;
-  margin-left: 42%;
+  margin-left: 47%;
 }
