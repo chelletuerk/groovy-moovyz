@@ -3,10 +3,6 @@ import { Link } from 'react-router'
 
 export default class App extends Component {
 
-  // home() {
-  //   return browserHistory.push('/')
-  // }
-
   render() {
     return (
       <div>
