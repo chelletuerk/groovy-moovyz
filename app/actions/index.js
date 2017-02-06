@@ -4,14 +4,14 @@ import { Link, browserHistory } from 'react-router'
 export const addFave = (movie) => {
   return {
     type: 'ADD_FAVE',
-    movie
+    movie,
   }
 }
 
 export const deleteFave = (movie) => {
   return {
     type: 'DELETE_FAVE',
-    movie
+    movie,
   }
 }
 
@@ -20,7 +20,7 @@ export const signIn = (email, password, user) => {
     type: 'SIGN_IN',
     email,
     password,
-    user
+    user,
   }
 }
 
@@ -39,13 +39,6 @@ export const displaySearchedMovie = (query, payload) => {
   }
 }
 
-export const fetchData = (params) => {
-  if (params.type === 'popular') {
-    return fetchPopular()
-  } else if (params.type ==='search') {
-    return fetchSearchedMovie(params.query)
-  }
-}
 
 const fetchPopular = () => {
   const baseUrl = 'https://api.themoviedb.org/3/'
@@ -53,28 +46,32 @@ const fetchPopular = () => {
 
   return (dispatch) => {
     fetch(`${baseUrl}${popular}`)
-      .then(response => {
-        return response.json()
-      })
-      .then(json => {
+      .then(response => response.json())
+      .then((json) => {
         dispatch(displayPopularMovies(json))
       })
-      .catch(err => console.log('err'))
+      .catch(err => 'err')
   }
- }
+}
 
 const fetchSearchedMovie = (query) => {
   const baseUrl = 'https://api.themoviedb.org/3/'
   const search = `search/movie?api_key=5cfdb8d0915ecb8d60d107cef74a22e8&query=${query}`
   return (dispatch) => {
     fetch(`${baseUrl}${search}`)
-      .then(response => {
-        return response.json()
-      })
-      .then( json => {
+      .then(response => response.json())
+      .then((json) => {
         dispatch(displaySearchedMovie(query, json))
       })
-      .catch(err => console.log('err'))
+      .catch(err => 'err')
+  }
+}
+
+export const fetchData = (params) => {
+  if (params.type === 'popular') {
+    return fetchPopular()
+  } else if (params.type === 'search') {
+    return fetchSearchedMovie(params.query)
   }
 }
 
@@ -82,26 +79,26 @@ export const fetchLogin = (email, password) => {
   return (dispatch) => {
     return fetch('/api/users', {
       method: 'POST',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({email, password})
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, password }),
     })
       .then(data => data.json())
-      .then(data => dispatch(signIn(email,password, data.data)))
+      .then(data => dispatch(signIn(email, password, data.data)))
       .then(data => browserHistory.push('/'))
       .catch(err => alert('Email and Password do not match'))
   }
 }
 
 export const sendFavorite = (movie, user) => {
-  if(!user){
+  if (!user) {
     alert('you must login to add favorites')
-      browserHistory.push('/login')
-        return
+    browserHistory.push('/login')
+    return
   }
   return (dispatch) => {
     return fetch('api/users/favorites/new', {
       method: 'POST',
-      headers: {'Content-Type' : 'application/json'},
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         movie_id: movie.id,
         user_id: user.id,
@@ -109,29 +106,28 @@ export const sendFavorite = (movie, user) => {
         poster_path: movie.poster_path,
         release_date: movie.release_date,
         vote_average: movie.vote_average,
-        overview: movie.overview})
+        overview: movie.overview }),
     })
       .then(data => dispatch(addFave(movie)))
-    }
   }
+}
 
-  export const deleteFavorite = (movie, user) => {
-    return (dispatch) => {
-      return fetch(`api/users/${user.id}/favorites/${movie.id}`, {
-        method: 'DELETE',
-        headers: {'Content-Type' : 'application/json'},
-      })
+export const deleteFavorite = (movie, user) => {
+  return (dispatch) => {
+    return fetch(`api/users/${user.id}/favorites/${movie.id}`, {
+      method: 'DELETE',
+      headers: { 'Content-Type': 'application/json' },
+    })
       .then(data => dispatch(deleteFave(movie)))
-    }
   }
+}
 
-  export const addUser = (name, email, password) => {
-      return (dispatch) => {
-        return fetch('/api/users/new', {
-          method: 'POST',
-          headers: {'Content-Type' : 'application/json'},
-          body: JSON.stringify({name, email, password})
-        })
-        // .then(data => dispatch)
-      }
-    }
+export const addUser = (name, email, password) => {
+  return (dispatch) => {
+    return fetch('/api/users/new', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, email, password }),
+    })
+  }
+}
