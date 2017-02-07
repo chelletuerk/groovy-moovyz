@@ -21,7 +21,7 @@ describe('Favorites', () => {
     expect(wrapper.find('li')).to.have.length(3)
   });
 
-  it.skip('should render a message of having no favorites when none present', () => {
+  it('should render a message of having no favorites when none present', () => {
     const fakeEmpty = { favorites: [{ favorites: [] }] }
     const wrapper = mount(<Favorites
       movies={fakeMovies} favorites={fakeEmpty} fetchData={fetchData}/>)

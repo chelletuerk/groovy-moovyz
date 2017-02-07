@@ -21,7 +21,7 @@ describe('MovieIndex', () => {
     expect(wrapper.find('.favorites').length).to.equal(1);
   });
 
-  it.skip('should render a list of movies on load', () => {
+  it('should render a list of movies on load', () => {
     const wrapper = mount(<MovieIndex
       movies={fakeMovies} favorites={fakeArray} fetchData={fetchData} />);
     expect(wrapper.find('li')).to.have.length(3)

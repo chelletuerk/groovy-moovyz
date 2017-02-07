@@ -6,7 +6,7 @@ import sinon from 'sinon'
 import FavoritesContainer, { mapStateToProps } from '../../app/containers/FavoritesContainer'
 
 describe('FavoritesContainer', () => {
-  it.skip('map state to props', () => {
+  it('map state to props', () => {
     const wrapper = mount(<FavoritesContainer />)
     assert.isFunction(mapStateToProps);
   });

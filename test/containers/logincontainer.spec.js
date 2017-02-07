@@ -6,7 +6,7 @@ import sinon from 'sinon'
 import LoginContainer, { mapStateToProps } from '../../app/containers/LoginContainer'
 
 describe('LoginContainer', () => {
-  it.skip('map state to props', () => {
+  it('map state to props', () => {
     const wrapper = mount(<LoginContainer />)
     assert.isFunction(mapStateToProps);
   });

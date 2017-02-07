@@ -23,7 +23,7 @@ describe('movies reducer', () => {
     expect(movies(undefined, action)).to.deep.equal({ searchedMovies: ['movie1', 'movie2', 'movie3'] })
   });
 
-  it.skip('ADD_FAVE should change the initial state', () => {
+  it('ADD_FAVE should change the initial state', () => {
     const action = {
       type: 'ADD_FAVE',
       movie: { favorites: ['movie1', 'movie2', 'movie3'] },

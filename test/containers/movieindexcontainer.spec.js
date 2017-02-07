@@ -1,16 +1,16 @@
-import React from 'react'
-import { shallow, mount } from 'enzyme'
-import { expect, assert } from 'chai'
-import sinon from 'sinon'
-import configureMockStore from 'redux-mock-store';
-import { Provider } from 'react-redux';
-
-import * as actions from '../../app/actions/index'
-import MovieIndexContainer, { mapStateToProps } from '../../app/containers/MovieIndexContainer'
-
-
-const fakeStore = configureMockStore()({ movies: [] })
-
+// import React from 'react'
+// import { shallow, mount } from 'enzyme'
+// import { expect, assert } from 'chai'
+// import sinon from 'sinon'
+// import configureMockStore from 'redux-mock-store';
+// import { Provider } from 'react-redux';
+//
+// import * as actions from '../../app/actions/index'
+// import MovieIndexContainer, { mapStateToProps } from '../../app/containers/MovieIndexContainer'
+//
+//
+// const fakeStore = configureMockStore()({ movies: [] })
+//
 // const setup = () => {
 //   const props = {
 //     handleSubmit: jest.fn(),
