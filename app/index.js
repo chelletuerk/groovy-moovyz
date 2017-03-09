@@ -9,6 +9,7 @@ import MovieIndexContainer from './containers/MovieIndexContainer'
 import FavoritesContainer from './containers/FavoritesContainer'
 import LoginContainer from './containers/LoginContainer'
 
+
 import movies from './reducers/movies-reducer'
 import user from './reducers/user-reducer'
 

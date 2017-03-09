@@ -1,6 +1,8 @@
-# Movie Tracker
+# Groovie Movies
 
-  This project is working off the The Movie DB API (https://www.themoviedb.org/documentation/api - note you'll need to go create an account to get an API key). The idea of the project is to be able to sign in as a user and save favorite movies. Pretty simple right? HA HA not!
+This is a small-scale React Router application that displays the most popular movies, being accessed through IMDB's API.  It allows a user to 'favorite' their favorite movies and stores them in a backend Express Node.js database.
+
+  This project is working off the The Movie DB API (https://www.themoviedb.org/documentation/api - note you'll need to go create an account to get an API key). The idea of the project is to be able to sign in as a user and save favorite movies.
 
   Bc this is still in beta here is what you'll need to know.
   * Using PostgreSQL
