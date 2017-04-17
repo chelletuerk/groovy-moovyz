@@ -7,7 +7,7 @@ machine:
 
   deployment:
     staging:
-      branch: master
+      branch: staging
       heroku:
         appname: groovy-moovyz-staging
 
