@@ -2,16 +2,16 @@ machine:
   node:
     version: 6.4.0
 
-timezone:
+  timezone:
     America/Denver
 
-deployment:
-  staging:
-    branch: master
-    heroku:
-      appname: groovy-moovyz-staging
+  deployment:
+    staging:
+      branch: master
+      heroku:
+        appname: groovy-moovyz-staging
 
-production:
-  branch: production
-    heroku:
-      appName: groovy-moovyz-production
+  production:
+    branch: production
+      heroku:
+        appName: groovy-moovyz-production
