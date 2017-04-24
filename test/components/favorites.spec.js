@@ -1,4 +1,4 @@
-import React from 'react'
+/*import React from 'react'
 import { shallow, mount } from 'enzyme'
 import { expect, assert } from 'chai'
 import sinon from 'sinon'
@@ -27,4 +27,4 @@ describe('Favorites', () => {
       movies={fakeMovies} favorites={fakeEmpty} fetchData={fetchData}/>)
     expect(wrapper.find('h4').text()).to.equal('You have no favorites');
   });
-});
+});*/
