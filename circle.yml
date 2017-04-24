@@ -1,17 +1,5 @@
 machine:
   node:
-    version: 6.4.0
-
+    version: 6.9.5
   timezone:
     America/Denver
-
-  deployment:
-    staging:
-      branch: staging
-      heroku:
-        appname: groovy-moovyz-staging
-
-  production:
-    branch: production
-      heroku:
-        appName: groovy-moovyz-production
