@@ -5,6 +5,7 @@ import sinon from 'sinon'
 
 import Favorites from '../../app/components/Favorites'
 
+
 describe('Favorites', () => {
   const fakeArray = { favorites: [{ key: 'val' }, { favorites: ['movie1', 'movie2', 'movie3'] }, { threekey: 'threeval' }] }
   const fakeMovies = { movies: [{ key: 'val' }, { popularMovies: ['movie1', 'movie2', 'movie3'] }, { threekey: 'threeval' }] }
