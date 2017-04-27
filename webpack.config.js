@@ -4,20 +4,19 @@ const webpack = require('webpack');
 module.exports = {
   devtool: '#source-map',
   context: __dirname,
-   entry: [
-     './app/index.js'
-   ],
+   entry: {
+     main: ['./public/index.js'],
+   },
    output: {
-     path: __dirname,
+     path: __dirname + "/public/",
      filename: 'bundle.js',
-     publicPath: '/'
+     publicPath: '/public'
    },
    module: {
      loaders: [{
        test: /.jsx?$/,
+       exclude: /(node_modules|bower_components)/,
        loader: 'babel-loader',
-       include: path.join(__dirname, 'app'),
-       exclude: /node_modules/,
        query: {
          presets: ['es2015', 'react']
        }
@@ -25,5 +24,5 @@ module.exports = {
    },
   resolve: {
     extensions: ['', '.js', '.jsx', '.json', '.scss', '.css']
-  }
+  },
 };

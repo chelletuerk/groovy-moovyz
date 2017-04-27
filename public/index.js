@@ -4,14 +4,14 @@ import thunk from 'redux-thunk'
 import { Router, Route, IndexRoute, browserHistory, IndexRedirect } from 'react-router'
 import { Provider } from 'react-redux'
 import { createStore, applyMiddleware, combineReducers, compose } from 'redux'
-import App from './components/App'
-import MovieIndexContainer from './containers/MovieIndexContainer'
-import FavoritesContainer from './containers/FavoritesContainer'
-import LoginContainer from './containers/LoginContainer'
+import App from './app/components/App'
+import MovieIndexContainer from './app/containers/MovieIndexContainer'
+import FavoritesContainer from './app/containers/FavoritesContainer'
+import LoginContainer from './app/containers/LoginContainer'
 
 
-import movies from './reducers/movies-reducer'
-import user from './reducers/user-reducer'
+import movies from './app/reducers/movies-reducer'
+import user from './app/reducers/user-reducer'
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 

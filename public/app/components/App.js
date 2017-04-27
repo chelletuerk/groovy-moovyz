@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router'
 
+require('./../assets/styles/main')
+require('./../assets/styles/media')
+
 export default class App extends Component {
 
   render() {

@@ -6,7 +6,7 @@
 // import { Provider } from 'react-redux';
 //
 // import * as actions from '../../app/actions/index'
-// import MovieIndexContainer, { mapStateToProps } from '../../app/containers/MovieIndexContainer'
+// import MovieIndexContainer, { mapStateToProps } from '../../app/public/containers/MovieIndexContainer'
 //
 //
 // const fakeStore = configureMockStore()({ movies: [] })
@@ -19,9 +19,9 @@
 //   const wrapper = mount(
 //     <Provider store={fakeStore}>
 //     <MovieIndexContainer {...props}/>
+//     <MovieIndexContainer handleSubmit={props.handleSubmit} movies={props.movies} />
 //     </Provider>
 //
-//     <MovieIndexContainer handleSubmit={props.handleSubmit} movies={props.movies} />
 //   )
 //
 //   const Component = wrapper.find(MovieIndex)
@@ -39,10 +39,11 @@
 //       assert.isFunction(mapStateToProps);
 //     });
 //
-//     it.skip('should call handleSearch when a user types in the input', () => {
+//     it.('should call handleSearch when a user types in the input', () => {
 //         const { props, Component } = setup()
 //         let input = Component.find('input')
 //         form.simulate('change')
 //         expect(props.handleSearch).toBeCalled('handleSearch')
 //   });
+// });
 // });
