@@ -5,7 +5,7 @@
   "scripts": {
     "build": "webpack --config ./webpack.config.js && cp bundle.js ./public/bundle.js && rm bundle.js && rm bundle.js.map",
     "dev-server": "webpack-dev-server --hot --inline --content-base --history-api-fallback",
-    "start": "npm build && node src/app.js",
+    "start": "npm build && node server.js",
     "test": "mocha -w --compilers js:babel-core/register --require test/helpers/test-setup.js test/**/*.spec.js"
   },
   "keywords": [],
