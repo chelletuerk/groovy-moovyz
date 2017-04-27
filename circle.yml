@@ -8,11 +8,16 @@ machine:
 
 deployment:
   staging:
-    branch: master
+    branch: staging
     heroku:
       appname: groovy-moovyz-staging
 
   production:
-    branch: production
+    branch: master
     heroku:
       appName: groovy-moovyz-production
+
+test:
+  override:
+    - npm rebuild node-sass --force
+	  - npm test
