@@ -10,9 +10,6 @@ app.get('/*', function (req, res) {
   res.sendFile(path.join(__dirname, './public/index.html'))
 })
 
-app.use('/assets', express.static(path.join(__dirname, '../app/')));
-
-
 app.listen(app.get('port'), () => {
   console.log(`Running on ${app.get('port')}`)
 })
