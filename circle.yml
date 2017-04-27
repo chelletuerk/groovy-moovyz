@@ -20,4 +20,4 @@ deployment:
 test:
   override:
     npm rebuild node-sass --force
-	  npm test
+  npm test
