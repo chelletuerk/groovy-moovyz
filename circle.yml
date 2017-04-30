@@ -1,5 +1,24 @@
 machine:
   node:
-    version: 6.9.5
+    version: 6.4.0
+
   timezone:
     America/Denver
+
+
+deployment:
+  staging:
+    branch: staging
+    heroku:
+      appname: groovy-moovyz-staging
+
+  production:
+    branch: master
+    heroku:
+      appName: groovy-moovyz-production
+
+test:
+  override:
+    - npm rebuild node-sass 
+    - npm test
+	  
