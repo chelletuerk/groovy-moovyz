@@ -125,7 +125,7 @@ button {
   border: none;
   background: white;
   color: black;
-  font-family: Arialfont-family: 'Amatic SC', cursive;;
+  /*font-family: Arialfont-family, 'Amatic SC', cursive;*/
   font-size: 10px;
   text-align: center;
   display: inline-block;

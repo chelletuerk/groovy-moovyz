@@ -17,8 +17,8 @@ deployment:
     heroku:
       appName: groovy-moovyz-production
 
-test:
-  override:
-    - npm rebuild node-sass 
-    - npm test
+  test:
+    override:
+      - npm rebuild node-sass 
+      - npm test
 	  

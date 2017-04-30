@@ -16,6 +16,7 @@ export const deleteFave = (movie) => {
 }
 
 export const signIn = (email, password, user) => {
+  console.log(email, password, user)
   return {
     type: 'SIGN_IN',
     email,
@@ -83,6 +84,7 @@ export const fetchLogin = (email, password) => {
       body: JSON.stringify({ email, password }),
     })
       .then(data => data.json())
+      // CHELLE, data.data is undefined, you need to dig into data and "find" the user profile to return
       .then(data => dispatch(signIn(email, password, data.data)))
       .then(data => browserHistory.push('/'))
       .catch(err => alert('Email and Password do not match'))
