@@ -10,7 +10,7 @@ exports.up = function(knex, Promise) {
         }),
 
         knex.schema.createTable('favorites', function(table){
-            table.string('id').primary();
+            table.increments('id').primary();
             table.string('title');
             table.string('poster_path');
             table.string('release_date');
@@ -28,7 +28,7 @@ exports.up = function(knex, Promise) {
 
 exports.down = function(knex, Promise) {
     return Promise.all([
-        knex.schema.dropTable('users'),
-        knex.schema.dropTable('favorites')
+        knex.schema.dropTable('favorites'),
+        knex.schema.dropTable('users')
     ])
 };

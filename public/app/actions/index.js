@@ -110,6 +110,7 @@ export const sendFavorite = (movie, user) => {
         vote_average: movie.vote_average,
         overview: movie.overview }),
     })
+      .then(data => console.log(data))
       .then(data => dispatch(addFave(movie)))
   }
 }

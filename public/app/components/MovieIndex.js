@@ -45,7 +45,7 @@ export default class MovieIndex extends Component {
                       alert('You sure you wanna add this twice??')
                       return
                     }
-                    this.props.sendFavorite(movie, this.props.user.user)
+                    this.props.sendFavorite(movie, this.props.user)
                     e.target.id = 'favorited'
                   }
                 }

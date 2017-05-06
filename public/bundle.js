@@ -28936,9 +28936,9 @@
 	      body: JSON.stringify({ email: email, password: password })
 	    }).then(function (data) {
 	      return data.json();
-	    }).then(function (data) {
-	      return console.log(data);
-	    }).then(function (data) {
+	    })
+	    // CHELLE, data.data is undefined, you need to dig into data and "find" the user profile to return
+	    .then(function (data) {
 	      return dispatch(signIn(email, password, data.data));
 	    }).then(function (data) {
 	      return _reactRouter.browserHistory.push('/');
@@ -28966,6 +28966,8 @@
 	        release_date: movie.release_date,
 	        vote_average: movie.vote_average,
 	        overview: movie.overview })
+	    }).then(function (data) {
+	      return console.log(data);
 	    }).then(function (data) {
 	      return dispatch(addFave(movie));
 	    });
@@ -29553,7 +29555,7 @@
 	                  alert('You sure you wanna add this twice??');
 	                  return;
 	                }
-	                _this3.props.sendFavorite(movie, _this3.props.user.user);
+	                _this3.props.sendFavorite(movie, _this3.props.user);
 	                e.target.id = 'favorited';
 	              }
 	            })
